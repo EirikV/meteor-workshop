@@ -1,30 +1,27 @@
 var instagram = (function(){
-    return {
 
-        fetchImages: function(tag, callback) {
-            if(!tag) {
-                throw new Exception('Tag is empty');
-            }
+       var fetchImages = function(tag, callback) {
+           if(!tag) {
+               throw new Exception('Tag is empty');
+           }
 
-            var self = this;
-            InstagramFetcher.fetchImages.fromTag({tagName: tag}, function(images) {
-                callback(null, self.randomImage(images));
-            });
-        },
+           InstagramFetcher.fetchImages.fromTag({tagName: tag}, function(images) {
+               callback(null, randomImage(images));
+           });
+       };
 
-        randomImage: function(images){
-            var random = Math.round(Math.random() * images.length);
+       var randomImage = function(images){
+           var random = Math.round(Math.random() * images.length);
 
-            return images[random].images;
-        },
+           return images[random].images;
+       };
 
-        getImage: function(tag) {
-            var async =  Meteor.wrapAsync(this.fetchImages, this);
+        return {
+            getImage: function(tag) {
+                var async =  Meteor.wrapAsync(fetchImages, this);
 
-            return async(tag);
+                return async(tag);
         }
-
-
     }
 });
 
