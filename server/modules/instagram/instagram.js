@@ -2,7 +2,7 @@ var instagram = (function(){
 
        var fetchImages = function(tag, callback) {
            if(!tag) {
-               throw new Exception('Tag is empty');
+               throw new Meteor.Error('Tag is empty');
            }
 
            InstagramFetcher.fetchImages.fromTag({tagName: tag}, function(images) {
@@ -16,13 +16,15 @@ var instagram = (function(){
            return images[random].images;
        };
 
-        return {
-            getImage: function(tag) {
-                var async =  Meteor.wrapAsync(fetchImages, this);
+       var getImage = function(tag) {
+           var async =  Meteor.wrapAsync(fetchImages, this);
 
-                return async(tag);
-        }
-    }
+           return async(tag);
+       };
+
+        return {
+            getImage: getImage
+        };
 });
 
 Instagram = new instagram();
