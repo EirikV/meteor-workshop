@@ -3,10 +3,7 @@ Router.configure({
 	notFoundTemplate: "NotFound"
 });
 
-Router.route("/", function() {
-	this.render("Posts");
-});
-
-Router.route("/login", function() {
-	this.render("Login");
+Router.map(function() {
+	this.route('Posts', {path: '/'});
+	this.route('Login', {path: '/login'});
 });
