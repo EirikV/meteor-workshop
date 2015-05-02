@@ -13,6 +13,7 @@ Meteor.methods({
             id: Meteor.userId()
         }
     });
+
   }
 
 });
