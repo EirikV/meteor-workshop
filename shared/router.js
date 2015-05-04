@@ -15,7 +15,6 @@ Router.map(function() {
 			path: '/profile/:username',
 			data: function() {
 				if(!Meteor.userId()) {
-					Notifications.error('Not signed in', 'You have to be signed in to view this page');
 					Router.go('Posts');
 					return;
 				}
