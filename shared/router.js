@@ -14,6 +14,7 @@ Router.map(function() {
 		{
 			path: '/profile/:username',
 			data: function() {
+				if(!this.ready()) return;
 				if(!Meteor.userId()) {
 					Router.go('Posts');
 					return;
