@@ -6,21 +6,33 @@
 				<div class="bubble">
 					<div class="content">
 						{{#if currentUser}}
-							<textarea id="tweet" name="tweet" placeholder="What are you up to?"></textarea>
-							<div class="tags">
+							<div class="row">
+								<textarea id="tweet" name="tweet" placeholder="What are you up to?"></textarea>
+							</div>
+							<div class="tags row">
 								<h3>Why havent you tagged anything yet? :'(</h3>
 							</div>
+							<div class="row">
+								<button class="pull-right btn btn-success" type="submit">Tweet</button>
+							</div>
 						{{else}}
-							<h1 class="center">Welcome to Tweeteor!</h1> <h2>Please, {{>loginButtons}} to post...</h2>
+							<div class="row">
+								<h1>Welcome to Tweeteor!</h1> <h2>Please, {{>loginButtons}} to post...</h2>
+							</div>
 						{{/if}}
 					</div>
 				</div>
-				<div class="meta">
+				<div class="meta row">
 					{{#if currentUser}}
 						{{#with currentUser}}
 							{{#linkTo route="edit.profile"}}
-								<h1>{{getName profile}}</h1>
-								<h2>{{username}}</h2>
+								<div class="avatar">
+									<img src="https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-15/11203196_1604754859805447_1660502734_n.jpg" alt="image" />
+								</div>
+								<div class="username">
+									<h1>{{getName profile}}</h1>
+									<h2>{{username}}</h2>
+								</div>
 							{{/linkTo}}
 						{{/with}}
 					{{/if}}
