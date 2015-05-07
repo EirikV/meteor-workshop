@@ -33,12 +33,11 @@ Template.header.helpers({
 		return firstname[Math.round(Math.random()*(firstname.length-1))] + ' ' + lastname[Math.round(Math.random()*(lastname.length-1))];
 	},
 
-	getAvatar: function(profileImage) {
-		if(profileImage) {
-			return profileImage;
-		}
-
-		return '/img/user.png';
+	getAvatar: function(imageId) {
+		var image = Images.findOne(imageId);
+		if(!image)
+			return '/img/user.png';
+		return image.url();
 	},
 
 	isHome: function() {
