@@ -1,11 +1,6 @@
 Router.configure({
 	layoutTemplate: 'Layout',
-	notFoundTemplate: 'NotFound',
-	waitOn: function(){
-		return [
-			Meteor.subscribe("profiles")
-		]
-	}
+	notFoundTemplate: 'NotFound'
 });
 
 Router.plugin('dataNotFound', {notFoundTemplate: 'NotFound'});
@@ -15,12 +10,12 @@ Router.map(function() {
 	this.route('Profile', 
 		{
 			path: '/profile/:username',
+			waitOn: function() {
+				return Meteor.subscribe("profile", this.params.username)	
+			},
 			data: function() {
 				if(!this.ready()) return;
-				if(!Meteor.userId()) {
-					Router.go('Posts');
-					return;
-				}
+
 				var user = Meteor.users.findOne({username: this.params.username});
 				var current = Meteor.user();
 				
