@@ -10,3 +10,5 @@ Meteor.publish("profile", function(username) {
 		fields:{"username": 1, "profile": 1}
 	});
 });
+
+Meteor.publish("images", function(){ return Images.find(); });

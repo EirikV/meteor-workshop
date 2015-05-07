@@ -12,3 +12,5 @@ krstffr:instagram-fetcher
 accounts-password
 accounts-ui
 gfk:notifications
+cfs:standard-packages
+cfs:gridfs
