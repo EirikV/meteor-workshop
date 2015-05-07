@@ -1,5 +1,8 @@
 Template.header.helpers({
 	getName: function(profile) {
+		if(Session.get('nameChange') && Session.get('nameChange').trim() !== '') {
+			return Session.get('nameChange');
+		}
 
 		if(profile.firstname || profile.lastname) {
 		    return profile.firstname + ' ' + profile.lastname;
