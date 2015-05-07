@@ -1,4 +1,4 @@
-<template name="post">
+<template name="viewPost">
     <div class="post row">
         <div class="bubble">
             <div class="content">
@@ -15,13 +15,17 @@
             </div>
         </div>
         <div class="meta row">
-            <div class="avatar">
-                <img src="https://igcdn-photos-h-a.akamaihd.net/hphotos-ak-xpa1/t51.2885-15/11203196_1604754859805447_1660502734_n.jpg" alt="image" />
-            </div>
-            <div class="username">
-                <h1>Ola Nordmann</h1>
-                <h2>olaNord</h2>
-            </div>
+            {{#with getUser userId}}
+                <div class="avatar">
+                    <img src="{{getAvatar profile.image}}" alt="image" />
+                </div>
+                <div class="username">
+                    
+                    <h1>{{profile.firstname}} {{profile.lastname}}</h1>
+                    <h2>{{username}}</h2>
+                    
+                </div>
+            {{/with}}
         </div>
     </div>
 </template>
