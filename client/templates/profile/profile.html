@@ -2,10 +2,10 @@
 	<section class="container profile">
 		<h1>{{user.username}}'s profile</h1>
 		<form class="profileForm">
-			{{>editOrDisplay type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
-			{{>editOrDisplay type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
-			{{>editOrDisplay type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
-			{{>editOrDisplay type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
+			{{>profileFormField type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
+			{{>profileFormField type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
+			{{>profileFormField type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
+			{{>profileFormField type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
 			
 			{{#if editPermissions}}
 				<button class="profileFormSubmit btn btn-primary" type="submit">Submit</button>
