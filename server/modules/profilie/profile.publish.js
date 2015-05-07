@@ -1,7 +1,5 @@
 Meteor.publish("profile", function(username) {
-	var user = Meteor.users.findOne({
-		username: username
-	});
+	var user = Meteor.users.findOne({username: username});
 	
 	if(!user) {
 		this.ready();
