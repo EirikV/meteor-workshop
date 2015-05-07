@@ -8,9 +8,14 @@
 			{{>editOrDisplay type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
 			
 			{{#if editPermissions}}
-				<input type="file" name="profilepic" class="profilePicUpload" />
 				<button class="profileFormSubmit btn btn-primary" type="submit">Submit</button>
 			{{/if}}
 		</form>
+		<article class="uploadProfilePic">
+			<span class="">
+				<label for="profilepic">Upload a new profile image:</label>
+				<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file" />
+			</span>
+		</article>
 	</section>
 </template>

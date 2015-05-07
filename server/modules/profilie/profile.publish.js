@@ -7,7 +7,7 @@ Meteor.publish("profile", function(username) {
 	}
 	
 	return Meteor.users.find(user._id, {
-		fields:{"username": 1, "profile": 1}
+		fields:{"username": 1, "profile": 1, "profileImage": 1}
 	});
 });
 

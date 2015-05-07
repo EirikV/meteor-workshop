@@ -13,7 +13,7 @@ Template.editProfile.events({
 			}
 		});
 	},
-	"change .profilePicUpload": function(event, template) {
+	"change .profilePicUploadInput": function(event, template) {
 		FS.Utility.eachFile(event, function(file) {
 			Images.insert(file, function (err, fileObj) {
 		  		if (err){
