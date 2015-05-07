@@ -32,14 +32,7 @@ Template.header.helpers({
 
 		return firstname[Math.round(Math.random()*(firstname.length-1))] + ' ' + lastname[Math.round(Math.random()*(lastname.length-1))];
 	},
-
-	getAvatar: function(imageId) {
-		var image = Images.findOne(imageId);
-		if(!image)
-			return '/img/user.png';
-		return image.url();
-	},
-
+	
 	isHome: function() {
 		return Router.current().location.get().path === '/';
 	}
