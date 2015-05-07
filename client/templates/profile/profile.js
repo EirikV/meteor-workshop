@@ -14,7 +14,6 @@ Template.editProfile.events({
 			}
 		});
 	},
-
 	"keyup input": function(e) {
 		var id = $(e.currentTarget).attr('name');
 
@@ -23,5 +22,16 @@ Template.editProfile.events({
 
 			Session.set('nameChange', name);
 		}
-	}
+	},
+	"change .profilePicUploadInput": function(event, template) {
+		FS.Utility.eachFile(event, function(file) {
+			Images.insert(file, function (err, fileObj) {
+		  		if (err){
+					Notifications.error("Couldn't upload image :(");		 
+			  	} else {
+		    		Meteor.call("updateProfileImage", "/cfs/files/images/" + fileObj._id);
+			  	}
+			});
+		});
+   }
 });

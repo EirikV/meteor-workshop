@@ -6,9 +6,16 @@
 			{{>editOrDisplay type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
 			{{>editOrDisplay type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
 			{{>editOrDisplay type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
+			
 			{{#if editPermissions}}
 				<button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
 			{{/if}}
 		</form>
+		<article class="uploadProfilePic">
+			<span class="">
+				<label for="profilepic">Upload a new profile image:</label>
+				<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file" />
+			</span>
+		</article>
 	</section>
 </template>
