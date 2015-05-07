@@ -17,7 +17,7 @@ Template.editProfile.events({
 	"click .signout": function(e) {
 		e.preventDefault();
 		Meteor.logout();
-		Router.go("Posts")	
+		Router.go("Posts");
 	},
 	"keyup input": function(e) {
 		var id = $(e.currentTarget).attr('name');

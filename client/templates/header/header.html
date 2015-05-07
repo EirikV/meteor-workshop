@@ -1,8 +1,9 @@
 <template name="header">
 	<header>
 		<section class="container">
-
-			<div id="new-post" class="post row">
+			{{> actionBar}}
+			<div class="post row">
+				{{#if isHome}}
 				<div class="bubble">
 					<div class="content">
 						{{#if currentUser}}
@@ -16,24 +17,24 @@
 								<button class="pull-right btn btn-success" type="submit">Tweet</button>
 							</div>
 						{{else}}
-							<div class="row">
-								<h1>Welcome to Tweeteor!</h1> <h2>Please, {{>loginButtons}} to post...</h2>
+							<div class="row center">
+								<h1>Welcome to Tweeteor!</h1>
+								<h4>Please sign in to join the fun...</h4>
 							</div>
 						{{/if}}
 					</div>
 				</div>
+				{{/if}}
 				<div class="meta row">
 					{{#if currentUser}}
 						{{#with currentUser}}
-							{{#linkTo route="edit.profile"}}
 								<div class="avatar">
 									<img src="{{getAvatar profile.image}}" alt="profile picture" />
 								</div>
 								<div class="username">
-									<h1>{{getName profile}}</h1>
+									<h1>{{#linkTo route="edit.profile"}}{{getName profile}}{{/linkTo}}</h1>
 									<h2>{{username}}</h2>
 								</div>
-							{{/linkTo}}
 						{{/with}}
 					{{/if}}
 				</div>

@@ -39,5 +39,9 @@ Template.header.helpers({
 		}
 
 		return '/img/user.png';
+	},
+
+	isHome: function() {
+		return Router.current().location.get().path === '/';
 	}
 });
