@@ -5,24 +5,7 @@
 			<div class="post row">
 				{{#if isHome}}
 				<div class="bubble">
-					<div class="content">
-						{{#if currentUser}}
-							<div class="row">
-								<textarea id="tweet" name="tweet" placeholder="What are you up to?"></textarea>
-							</div>
-							<div class="tags row">
-								<h3>Why havent you # anything yet? :'(</h3>
-							</div>
-							<div class="row">
-								<button class="pull-right btn btn-success" type="submit">Tweet</button>
-							</div>
-						{{else}}
-							<div class="row center">
-								<h1>Welcome to Tweeteor!</h1>
-								<h4>Please sign in to join the fun...</h4>
-							</div>
-						{{/if}}
-					</div>
+					{{> newPost}}
 				</div>
 				{{/if}}
 				<div class="meta row">

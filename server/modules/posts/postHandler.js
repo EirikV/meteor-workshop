@@ -24,19 +24,28 @@
                  throw new Meteor.Error('Empty post');
              }
 
-             _.extend(post, {
-                tags: instagramFromTags(filterTags((post.text.trim())))
-             });
+             post = matchWithTags(post);
 
-             posts.insert(post);
+             Posts.insert(post);
          };
 
+         var matchWithTags = function(post) {
+              if(!post.text || !post.text.trim()){
+                  return;
+              }
+
+             return _.extend(post, {
+                tags: instagramFromTags(filterTags((post.text.trim())))
+             });
+         }
+
         return {
-            add: addNew
+            add: addNew,
+            matchTags: matchWithTags
         };
 
     };
 
     Tweeteor.postHandler = new PostHandler();
 
-});
+})();
