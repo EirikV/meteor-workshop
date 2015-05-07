@@ -1,6 +1,10 @@
 .post {
     margin: 20px 0 40px;
 
+   .row {
+        margin: 0;
+    }
+
     &:nth-child(2n+0) {
         >.bubble {
             &:after {
@@ -69,35 +73,66 @@
     }
 
     >.meta {
-        margin-top: 30px;
-        text-align: left;
-        color: @off-white;
+        margin-top: 20px;
 
         *  {
             margin: 0;
         }
 
-        h2 {
-            color: @light-gray;
-            font-size: 20px;
+        .avatar {
+            display: inline-block;
+            vertical-align: 20px;
 
-            &:before {
-                content: "@";
+            > img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
             }
         }
-    }
 
-    @media (max-width: @screen-sm-min) {
-        >.bubble {
-            >.content {
-                >.tags {
-                    display: block;
-                    >.tag {
-                        max-width: 100%;
-                        display: block;
-                    }
+        .username {
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 30px;
+            text-align: left;
+            color: @off-white;
+
+            h2 {
+                color: @light-gray;
+                font-size: 20px;
+
+                &:before {
+                    content: "@";
                 }
             }
         }
+
+    }
+
+    @media (max-width: @screen-sm-min) {
+    >.meta {
+        margin-top: 5px;
+
+        .avatar {
+            margin-left: -45px;
+            vertical-align: 10px;
+
+            > img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .username {
+
+            h1 {
+                font-size: 22px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+        }
+     }
     }
 }
