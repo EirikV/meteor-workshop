@@ -8,6 +8,8 @@ Router.configure({
 	}
 });
 
+Router.plugin('dataNotFound', {notFoundTemplate: 'NotFound'});
+
 Router.map(function() {
 	this.route('Posts', {path: '/'});
 	this.route('Profile', 
@@ -21,10 +23,13 @@ Router.map(function() {
 				}
 				var user = Meteor.users.findOne({username: this.params.username});
 				var current = Meteor.user();
-				return {
+				
+				
+				
+				return user ? {
 					user: user,
 					editPermissions: current.username === this.params.username
-				};
+				} : null;
 			},
 			name: "edit.profile"
 		});
