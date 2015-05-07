@@ -5,9 +5,10 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
 iron:router
 twbs:bootstrap
 less
 krstffr:instagram-fetcher
+accounts-password
+accounts-ui
+gfk:notifications

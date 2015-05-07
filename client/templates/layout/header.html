@@ -1,11 +1,17 @@
 <template name="header">
 	<header>
 		<section class="container">
-			Some form of header here to be displayed on all routes
-			<!--We can have an if block here to check if a user is logged in. Display link to login if no, and to the profile page if yes-->
-			{{#linkTo route="login"}}
-				<span>A link to login</span>
-			{{/linkTo}}
+			{{>loginButtons}}
+			{{#if currentUser}}
+				{{#with currentUser}}
+					{{#linkTo route="edit.profile"}}
+						<span>{{username}}'s profile</span>
+					{{/linkTo}}
+				{{/with}}
+			{{/if}}
+		</section>
+		<section>
+			{{> notifications}}
 		</section>
 	</header>
 </template>
