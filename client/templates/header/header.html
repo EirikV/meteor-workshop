@@ -1,0 +1,31 @@
+<template name="header">
+	<header>
+		<section class="container">
+
+			<div id="new-post" class="post row">
+				<div class="bubble">
+					<div class="content">
+						{{#if currentUser}}
+							<textarea id="tweet" name="tweet" placeholder="What are you up to?"></textarea>
+							<div class="tags">
+								<h3>Why havent you tagged anything yet? :'(</h3>
+							</div>
+						{{else}}
+							<h1 class="center">Welcome to Tweeteor!</h1> <h2>Please, {{>loginButtons}} to post...</h2>
+						{{/if}}
+					</div>
+				</div>
+				<div class="meta">
+					{{#if currentUser}}
+						{{#with currentUser}}
+							{{#linkTo route="edit.profile"}}
+								<h1>{{getName profile}}</h1>
+								<h2>{{username}}</h2>
+							{{/linkTo}}
+						{{/with}}
+					{{/if}}
+				</div>
+			</div>
+		</section>
+	</header>
+</template>
