@@ -8,14 +8,19 @@
                }
 
                InstagramFetcher.fetchImages.fromTag({tagName: tag}, function(images) {
-                   callback(null, randomImage(images));
+                   callback(null, randomImage(images, tag));
                });
            };
 
-           var randomImage = function(images){
+           var randomImage = function(images, tag){
                var random = Math.round(Math.random() * images.length);
+               var selected = images[random];
 
-               return images[random].images;
+               return image = {
+                    imgs: selected.images,
+                    link: selected.link,
+                    tag: tag
+               }
            };
 
            var getImage = function(tag) {
