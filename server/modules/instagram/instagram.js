@@ -1,30 +1,35 @@
-var instagram = (function(){
+(function() {
 
-       var fetchImages = function(tag, callback) {
-           if(!tag) {
-               throw new Meteor.Error('Tag is empty');
-           }
+    var Instagram = function(){
 
-           InstagramFetcher.fetchImages.fromTag({tagName: tag}, function(images) {
-               callback(null, randomImage(images));
-           });
-       };
+           var fetchImages = function(tag, callback) {
+               if(!tag) {
+                   throw new Meteor.Error('Tag is empty');
+               }
 
-       var randomImage = function(images){
-           var random = Math.round(Math.random() * images.length);
+               InstagramFetcher.fetchImages.fromTag({tagName: tag}, function(images) {
+                   callback(null, randomImage(images));
+               });
+           };
 
-           return images[random].images;
-       };
+           var randomImage = function(images){
+               var random = Math.round(Math.random() * images.length);
 
-       var getImage = function(tag) {
-           var async =  Meteor.wrapAsync(fetchImages, this);
+               return images[random].images;
+           };
 
-           return async(tag);
-       };
+           var getImage = function(tag) {
+               var async =  Meteor.wrapAsync(fetchImages, this);
 
-        return {
-            getImage: getImage
-        };
-});
+               return async(tag);
+           };
 
-Instagram = new instagram();
+            return {
+                getImage: getImage
+            };
+    };
+
+    Tweeteor.instagram = new Instagram();
+
+
+})();

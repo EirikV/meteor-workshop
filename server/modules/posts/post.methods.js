@@ -5,7 +5,7 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
-    Post.add({
+    Tweeteor.postHandler.add({
         text: text,
         createdAt: new Date(),
         user: {
