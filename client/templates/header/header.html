@@ -10,7 +10,7 @@
 								<textarea id="tweet" name="tweet" placeholder="What are you up to?"></textarea>
 							</div>
 							<div class="tags row">
-								<h3>Why havent you tagged anything yet? :'(</h3>
+								<h3>Why havent you # anything yet? :'(</h3>
 							</div>
 							<div class="row">
 								<button class="pull-right btn btn-success" type="submit">Tweet</button>
@@ -27,7 +27,7 @@
 						{{#with currentUser}}
 							{{#linkTo route="edit.profile"}}
 								<div class="avatar">
-									<img src="{{profileImage}}" alt="profile picture" />
+									<img src="{{getAvatar profileImage}}" alt="profile picture" />
 								</div>
 								<div class="username">
 									<h1>{{getName profile}}</h1>
