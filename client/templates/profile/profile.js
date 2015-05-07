@@ -34,7 +34,7 @@ Template.editProfile.events({
 		  		if (err){
 					Notifications.error("Couldn't upload image :(");		 
 			  	} else {
-		    		Meteor.call("updateProfileImage", "/cfs/files/images/" + fileObj._id);
+					Meteor.call("updateProfileImage", fileObj._id);  
 			  	}
 			});
 		});
