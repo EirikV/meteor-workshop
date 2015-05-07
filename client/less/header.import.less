@@ -2,31 +2,45 @@ header {
     background-color: @off-black;
     color: @off-white;
 
-    #tweet {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        background-color: @off-white;
-        border-radius: 5px;
-        border: 1px solid @light-gray;
-        min-height: 100px;
-        font-size: 18px;
-    }
+    .post {
+        #tweet {
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+            background-color: @off-white;
+            border-radius: 5px;
+            border: 1px solid @light-gray;
+            min-height: 100px;
+            font-size: 18px;
+        }
 
-    #new-post {
-        a {
-            color: @light-gray;
-
-            &:hover {
-                text-decoration: none;
-
-                h1 {
-                    color: @dark-gray;
-                }
+        &:nth-child(2n+0) {
+            > .meta {
+                text-align: left;
             }
 
-
+            >.bubble {
+                &:after {
+                  float: left;
+                  margin-left: 20px;
+                }
+            }
         }
 
     }
+
+    .meta {
+        h1 {
+            a {
+                color: @off-white;
+
+                &:hover {
+                    color: @gray;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+
 }
