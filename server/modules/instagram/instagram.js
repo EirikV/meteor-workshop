@@ -3,7 +3,7 @@
     var Instagram = function(){
 
            var fetchImages = function(tag, callback) {
-           
+
                if(!tag) {
                    throw new Meteor.Error('Tag is empty');
                }
