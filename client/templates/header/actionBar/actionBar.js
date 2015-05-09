@@ -4,7 +4,8 @@ Template.actionBar.events({
 	},
 
 	'click .glyphicon-log-out': function() {
-  		Meteor.logoutOtherClients();
+//			Uncomment this line, sign in in two different browsers, sign out and se what happens.
+//  		Meteor.logoutOtherClients();
 		Meteor.logout();
         Router.go("Posts");
 	}
