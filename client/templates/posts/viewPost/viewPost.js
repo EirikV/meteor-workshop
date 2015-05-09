@@ -6,5 +6,14 @@ Template.viewPost.helpers({
 			username: user.username,
 			profile: user.profile
 		};
+	},
+
+	tagError: function(error) {
+	    if(error) {
+	        return 'tag-forbidden';
+        } else {
+            return 'tag-not-found';
+        }
 	}
+
 })

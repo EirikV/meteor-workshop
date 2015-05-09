@@ -8,7 +8,6 @@ meteor-platform
 iron:router
 twbs:bootstrap
 less
-krstffr:instagram-fetcher
 accounts-password
 accounts-ui
 gfk:notifications

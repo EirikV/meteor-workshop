@@ -58,17 +58,45 @@
 
                     > a {
                         &:hover {
-
-                            img {
-                                border: 4px solid @blue;
+                            > * {
+                                transform: scale(1.15);
                             }
                         }
 
-                        img {
+                        > * {
+                            transition: transform 100ms ease-in;
                             width: 80px;
                             height: 80px;
                             border-radius: 50%;
                         }
+
+                        .tag-forbidden, .tag-not-found {
+                            display: block;
+                            background: @blue;
+
+                            &:before {
+                                color: @off-white;
+                                font-size: 40px;
+                                font-weight: bold;
+                                display: inline-block;
+                                width: 100%;
+                                text-align: center;
+                                margin-top: 10px;
+                            }
+                        }
+
+                        .tag-forbidden {
+                            background: @red;
+
+                            &:before {
+                                content: "X";
+                            }
+                        }
+
+                        .tag-not-found:before {
+                            content: "?";
+                        }
+
                     }
 
                     >.hashtag {
