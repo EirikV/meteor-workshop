@@ -4,7 +4,8 @@ Template.actionBar.events({
 	},
 
 	'click .glyphicon-log-out': function() {
-        Meteor.logout();
+  		Meteor.logoutOtherClients();
+		Meteor.logout();
         Router.go("Posts");
 	}
 });
