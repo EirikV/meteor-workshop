@@ -14,7 +14,17 @@
         }
 
         >.meta {
-            text-align: right;
+            justify-content: flex-end;
+
+            >.avatar {
+                order: 2;
+                margin-left: 5px;
+            }
+
+            >.username {
+                margin-left: 0;
+                text-align: right;
+            }
         }
     }
 
@@ -117,13 +127,17 @@
     }
 
     >.meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 30px;
 
         *  {
             margin: 0;
+            flex-direction: column;
         }
 
         .avatar {
-            display: inline-block;
             vertical-align: 20px;
 
             > img {
@@ -134,9 +148,8 @@
         }
 
         .username {
-            display: inline-block;
             margin-left: 5px;
-            margin-top: 30px;
+            margin-top: 15px;
             text-align: left;
             
             .name {
@@ -167,11 +180,19 @@
         margin-bottom: 5px;
     }
 
+    &:nth-child(2n+0) {
+
+        >.meta {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+    }
+
     >.meta {
-        margin-top: 5px;
+        margin-left: 15px;
+        margin-top: 30px;
 
         .avatar {
-            margin-left: -45px;
             vertical-align: 10px;
 
             > img {
@@ -181,6 +202,7 @@
         }
 
         .username {
+            margin-top: 7px;
 
             h1 {
                 font-size: 22px;
