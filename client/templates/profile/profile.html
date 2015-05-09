@@ -1,21 +1,33 @@
 <template name="editProfile">
 	<section class="container profile">
-		<h1>{{user.username}}'s profile</h1>
-		<form class="profileForm">
-			{{>profileFormField type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
-			{{>profileFormField type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
-			{{>profileFormField type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
-			{{>profileFormField type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
-			
+		<div class="row">
+			<div class="avatar">
+				<img src="{{getAvatar user.profile.image}}" alt="profile picture" />
+			</div>
+			<div class="username">
+				<h1>{{getName user.profile}}'s profile</h1>	
+			</div>				
+		</div>		
+		<div class="row">				
+			<form class="profileForm">
+				<div class="{{displayClass editPermissions}} fields">
+					{{>profileFormField type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
+					{{>profileFormField type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
+					{{>profileFormField type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
+					{{>profileFormField type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
+				</div>
+				{{#if editPermissions}}
+					<button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
+				{{/if}}
+			</form>
 			{{#if editPermissions}}
-				<button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
+				<article class="uploadProfilePic">
+					<span class="">
+						<label for="profilepic">Upload a new profile image:</label>
+						<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file" />
+					</span>
+				</article>
 			{{/if}}
-		</form>
-		<article class="uploadProfilePic">
-			<span class="">
-				<label for="profilepic">Upload a new profile image:</label>
-				<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file" />
-			</span>
-		</article>
+		</div>
 	</section>
 </template>

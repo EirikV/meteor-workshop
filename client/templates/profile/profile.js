@@ -34,3 +34,9 @@ Template.editProfile.events({
 		});
    }
 });
+
+Template.editProfile.helpers({
+	displayClass: function(editPermissions) {
+		return editPermissions ? "edit" : "read-only";
+	}
+});

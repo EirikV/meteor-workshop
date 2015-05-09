@@ -24,7 +24,7 @@
                     <img src="{{getAvatar profile.image}}" alt="image" />
                 </div>
                 <div class="username">
-                    <h1>{{profile.firstname}} {{profile.lastname}}</h1>
+                    <h1><span class="name">{{#linkTo route="edit.profile"}}{{getName profile}}{{/linkTo}}</span></h1>
                     <h2>{{username}}</h2>
                 </div>
             {{/with}}
