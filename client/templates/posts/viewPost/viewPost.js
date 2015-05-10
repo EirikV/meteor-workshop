@@ -12,4 +12,4 @@ Template.viewPost.helpers({
 		return Tags.findOne({postId: postId, tag: tag});
 	}
 
-})
+});

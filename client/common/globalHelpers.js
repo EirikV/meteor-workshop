@@ -1,54 +1,69 @@
-Template.registerHelper("getAvatar", function(imageId) {
+Template.registerHelper('getAvatar', function(imageId) {
+	if(imageId === "Hodor") {
+		return "/img/hodor.jpg";
+	}
 	var image = Images.findOne(imageId);
 	if(!image)
 		return '/img/user.png';
 	return image.url();
 });
 
-Template.registerHelper("getName", function(profile) {
+var updateProfile = function(profileInfo) {
+	Meteor.call('updateUserProfile', profileInfo, function(error, result) {
+		if(error) {
+			Notifications.error(error.error);
+		}
+
+	});
+}
+
+Template.registerHelper('getName', function(profile, username) {
 	if(Session.get('nameChange') && Session.get('nameChange').trim() !== '') {
     		return Session.get('nameChange');
-    	}
+	}
 
-    	if(profile && (profile.firstname || profile.lastname)) {
-    	    return profile.firstname + ' ' + profile.lastname;
-    	}
-
-    	var firstname = [
-    	    'Captain',
-    	    'Jane',
-    	    'John',
-    	    'Ola',
-    	    'Miss.',
-    	    'Mr.',
-    	    'Doctor',
-    	    'Mrs.',
-    	    'Sir.'
-    	];
-
-    	var lastname = [
-    	    'NoName',
-    	    'Nameless',
-    	    'JohnDoe',
-    	    'Nordmann',
-    	    'HazNoName',
-    	    'QuestionMark'
-    	];
-
-    	var profileInfo = {
-    		firstname: firstname[Math.round(Math.random()*(firstname.length-1))],
-    		lastname: lastname[Math.round(Math.random()*(lastname.length-1))]
-    	}
-
-		Meteor.call('updateUserProfile', profileInfo, function(error, result) {
-			delete Session.keys['nameChange'];
-
-			if(error) {
-				Notifications.error(error.error);
-			}
-
+	if(profile && (profile.firstname || profile.lastname)) {
+	    return profile.firstname + ' ' + profile.lastname;
+	}
+	
+	if(username === 'Hodor') {
+		updateProfile({
+			firstname: 'Hodor',
+			lastname: '',
+			adress: 'Hodor',
+			phone: 'Hodor',
+			image: 'Hodor',
 		});
+		return;
+	}
 
+	var firstname = [
+	    'Captain',
+	    'Jane',
+	    'John',
+	    'Ola',
+	    'Miss.',
+	    'Mr.',
+	    'Doctor',
+	    'Mrs.',
+	    'Sir.'
+	];
 
-    	return;
+	var lastname = [
+	    'NoName',
+	    'Nameless',
+	    'JohnDoe',
+	    'Nordmann',
+	    'HazNoName',
+	    'QuestionMark'
+	];
+
+	var profileInfo = {
+		firstname: firstname[Math.round(Math.random()*(firstname.length-1))],
+		lastname: lastname[Math.round(Math.random()*(lastname.length-1))]
+	}
+
+	updateProfile(profileInfo)
+	
+	return;
 });
