@@ -27,14 +27,14 @@ For you Windows users, there is also a **dev.bat**. Our pleasure!
 Head over there and get `accounts-password` and `accounts-ui` for your project.
 Hint: It might be useful to have a look in **accountsConfig.js** after you have acquired the packages.
 
-So why do Meteor.js need a new packaging system? Why can't they just use npm or something?
-According to Meteor, this is because Meteor applications, and thereby packages have the ability to be isomorphic.
+⋅⋅⋅So why do Meteor.js need a new packaging system? Why can't they just use npm or something?
+⋅⋅⋅According to Meteor, this is because Meteor applications, and thereby packages have the ability to be isomorphic.
 
 2. Once you've got accounts up and running, try to add some inputs to the profile page. This could, for example be, first- and lastname, address, and phone number.
 At this point it would be awesome to test out template inclusion (`{{>profileFormField}}`).
 
-Templates in Meteor.js look like mustache or handlebars, but are not.
-Meteor.js uses its own Spacebars templating language inspired by mustache/handlebars.
+⋅⋅⋅Templates in Meteor.js look like mustache or handlebars, but are not.
+⋅⋅⋅Meteor.js uses its own Spacebars templating language inspired by mustache/handlebars.
 
 3. In Meteor.js we get reactive programming out of the box.
 So our next fun little task is to test out the session-object. Attempt to make the users first- and lastname in the profile page header change whilst the user is typing.
@@ -55,8 +55,8 @@ You are free to implement as you wish.
 We have given you a head start by providing the styling and template files.
 
 Hints:
-⋅⋅* ***tag.html** & **tag.js** are just a proposal, you are free to make your own or customize it with your own structure.*
-⋅⋅* *Fetching tags from instagram MUST TO BE ON THE SERVER, so the method for adding a post should at least have an if(isServer) or if(isClient) { return; }*
+- * **tag.html** & **tag.js** are just a proposal, you are free to make your own or customize it with your own structure.*
+- *Fetching tags from instagram MUST TO BE ON THE SERVER, so the method for adding a post should at least have an `if(isServer)` or `if(isClient) { return; }`*
 
 
 ### 4. Bonus
