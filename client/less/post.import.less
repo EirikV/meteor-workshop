@@ -73,6 +73,57 @@
                             }
                         }
 
+                        &.loading {
+
+                          > * {
+                            -moz-animation-duration: 500ms;
+                            -webkit-animation-duration: 500ms;
+                            animation-duration: 500ms;
+
+                            -moz-animation-name: scale;
+                            -webkit-animation-name: scale;
+                            animation-name: scale;
+
+                            -moz-animation-iteration-count: infinite;
+                            -webkit-animation-iteration-count: infinite;
+                            animation-iteration-count: infinite;
+
+                            -moz-animation-direction: alternate;
+                            -webkit-animation-direction: alternate;
+                            animation-direction: alternate;
+
+                            @-webkit-keyframes scale{
+                              from {
+                                transform: scale(1.0);
+                              }
+
+                              to {
+                                transform: scale(1.15);
+                              }
+                            }
+
+                           @-moz-keyframes scale{
+                              from {
+                                transform: scale(1.0);
+                              }
+
+                              to {
+                                transform: scale(1.15);
+                              }
+                            }
+
+                           @keyframes scale{
+                              from {
+                                transform: scale(1.0);
+                              }
+
+                              to {
+                                transform: scale(1.15);
+                              }
+                            }
+                          }
+                        }
+
                         > * {
                             transition: transform 100ms ease-in;
                             width: 80px;
@@ -80,7 +131,7 @@
                             border-radius: 50%;
                         }
 
-                        .tag-forbidden, .tag-not-found {
+                        .tag-forbidden, .tag-not-found, .tag-undefined {
                             display: block;
                             background: @blue;
 
@@ -107,20 +158,15 @@
                             content: "?";
                         }
 
-                    }
+                        .tag-undefined {
+                            background: @light-gray;
 
-                    >.hashtag {
-
-                        font-size: 20px;
-                        font-weight: bold;
-                        vertical-align: middle;
-
-                        &:before {
-                            color: @blue;
-                            content: "#";
+                            &:before {
+                                content: "#";
+                            }
                         }
-                    }
 
+                    }
                 }
             }
         }
