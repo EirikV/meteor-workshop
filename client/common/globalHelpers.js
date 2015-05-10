@@ -1,69 +1,8 @@
-Template.registerHelper('getAvatar', function(imageId) {
-	if(imageId === "Hodor") {
-		return "/img/hodor.jpg";
-	}
-	var image = Images.findOne(imageId);
-	if(!image)
-		return '/img/user.png';
-	return image.url();
-});
-
-var updateProfile = function(profileInfo) {
-	Meteor.call('updateUserProfile', profileInfo, function(error, result) {
-		if(error) {
-			Notifications.error(error.error);
-		}
-
-	});
-}
-
 Template.registerHelper('getName', function(profile, username) {
-	if(Session.get('nameChange') && Session.get('nameChange').trim() !== '') {
-    		return Session.get('nameChange');
-	}
-
+	//It would be cool to display the name while the user is typing....
 	if(profile && (profile.firstname || profile.lastname)) {
 	    return profile.firstname + ' ' + profile.lastname;
 	}
 	
-	if(username === 'Hodor') {
-		updateProfile({
-			firstname: 'Hodor',
-			lastname: '',
-			adress: 'Hodor',
-			phone: 'Hodor'
-		});
-		Meteor.call("updateProfileImage", "Hodor");
-		return;
-	}
-
-	var firstname = [
-	    'Captain',
-	    'Jane',
-	    'John',
-	    'Ola',
-	    'Miss.',
-	    'Mr.',
-	    'Doctor',
-	    'Mrs.',
-	    'Sir.'
-	];
-
-	var lastname = [
-	    'NoName',
-	    'Nameless',
-	    'JohnDoe',
-	    'Nordmann',
-	    'HazNoName',
-	    'QuestionMark'
-	];
-
-	var profileInfo = {
-		firstname: firstname[Math.round(Math.random()*(firstname.length-1))],
-		lastname: lastname[Math.round(Math.random()*(lastname.length-1))]
-	}
-
-	updateProfile(profileInfo)
-	
-	return;
+	return "Placeholder-username";
 });

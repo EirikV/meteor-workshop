@@ -8,8 +8,6 @@ meteor-platform
 iron:router
 twbs:bootstrap
 less
-accounts-password
-accounts-ui
 gfk:notifications
 cfs:standard-packages
 cfs:gridfs

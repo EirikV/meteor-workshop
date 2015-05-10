@@ -1,9 +1,9 @@
 Meteor.publish("profiles", function() {
-	return Meteor.users.find({}, {
-		fields: {"username": 1, "profile": 1}
-	});
+	//I need to expose the username and profile fields somehow...
+
 });
 
 Meteor.publish("images", function(){ 
-	return Images.find(); 
+	//How to send all images to the client?
+
 });

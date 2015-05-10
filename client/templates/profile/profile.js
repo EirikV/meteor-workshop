@@ -1,38 +1,13 @@
 Template.editProfile.events({
 	'submit .profileForm': function(e) {
-		e.preventDefault();
-		var data = $('form.profileForm').serializeArray();
-		var profileInfo = _.object(_.pluck(data, 'name'), _.pluck(data, 'value'));
-		
-		Meteor.call('updateUserProfile', profileInfo, function(error, result) {
-			delete Session.keys['nameChange'];
-
-			if(error) {
-				Notifications.error(error.error);
-			} else {
-				Notifications.success('Successfully updated profile :)')
-			}
-		});
+		//What use is this form-data without putting it in the database?
 	},
 	'keyup input': function(e) {
-		var id = $(e.currentTarget).attr('name');
-
-		if(id === 'firstname' || id === 'lastname') {
-			var name = $('input[name="firstname"]').val() + ' ' + $('input[name="lastname"]').val();
-			Session.set('nameChange', name);
-		}
+		//This event might be used for some fun reactive programming stuff
 	},
 	'change .profilePicUploadInput': function(event, template) {
-		FS.Utility.eachFile(event, function(file) {
-			Images.insert(file, function (err, fileObj) {
-		  		if (err){
-					Notifications.error('Error uploading image :(');		 
-			  	} else {
-					Meteor.call('updateProfileImage', fileObj._id);  
-			  	}
-			});
-		});
-   }
+		//Sure would be nice to have my picture stored somewhere... If there only was some packages already installed I could use..
+	}
 });
 
 Template.editProfile.helpers({

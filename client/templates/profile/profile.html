@@ -2,7 +2,7 @@
 	<section class="container profile">
 		<div class="row">
 			<div class="avatar">
-				<img src="{{getAvatar user.profile.image}}" alt="profile picture" />
+				<img src="/img/user.png" alt="profile picture" />
 			</div>
 			<div class="username">
 				<h1>{{getName user.profile user.username}}'s profile</h1>	
@@ -11,10 +11,7 @@
 		<div class="row">				
 			<form class="profileForm">
 				<div class="{{displayClass editPermissions}} fields">
-					{{>profileFormField type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
-					{{>profileFormField type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
-					{{>profileFormField type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
-					{{>profileFormField type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
+					
 				</div>
 				{{#if editPermissions}}
 					<button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
