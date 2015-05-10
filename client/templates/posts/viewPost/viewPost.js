@@ -24,7 +24,6 @@ Template.viewPost.events({
 			markupText: this.text
 		}
 
-		console.log(post);
 	},
 
 	'mouseleave .post': function(e) {
