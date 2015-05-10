@@ -37,7 +37,6 @@ Template.viewPost.events({
 		}
 
 		post.markupText = post.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>');
-		console.log(post.markupText);
 		$(post.target).find('.text').html(post.markupText);
 	},
 
