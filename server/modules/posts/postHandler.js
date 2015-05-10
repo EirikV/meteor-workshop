@@ -9,7 +9,7 @@
             });
 
             return _.map(tags, function(str) {
-                return str.replace(/[^\w]*/gi, '');
+                return str.replace(/[^A-Za-z0-9æøåÆØÅ]*/gi, '');
             });
         };
 

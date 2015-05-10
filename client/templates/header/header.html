@@ -2,26 +2,27 @@
 	<header>
 		<section class="container">
 			{{> actionBar}}
-			<div class="post row">
-				{{#if isHome}}
-				<div class="bubble">
-					{{> newPost}}
+
+			{{#if isHome}}
+				<div class="post row">
+					<div class="bubble">
+						{{> newPost}}
+					</div>
+					<div class="meta row">
+						{{#if currentUser}}
+							{{#with currentUser}}
+									<div class="avatar">
+										<img src="{{getAvatar profile.image}}" alt="profile picture" />
+									</div>
+									<div class="username">
+										<h1>{{#linkTo route="edit.profile"}}{{getName profile}}{{/linkTo}}</h1>
+										<h2>{{username}}</h2>
+									</div>
+							{{/with}}
+						{{/if}}
+					</div>
 				</div>
-				{{/if}}
-				<div class="meta row">
-					{{#if currentUser}}
-						{{#with currentUser}}
-								<div class="avatar">
-									<img src="{{getAvatar profile.image}}" alt="profile picture" />
-								</div>
-								<div class="username">
-									<h1>{{#linkTo route="edit.profile"}}{{getName profile}}{{/linkTo}}</h1>
-									<h2>{{username}}</h2>
-								</div>
-						{{/with}}
-					{{/if}}
-				</div>
-			</div>
+			{{/if}}
 		</section>
 	</header>
 </template>
