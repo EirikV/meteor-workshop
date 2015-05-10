@@ -31,9 +31,9 @@ Template.registerHelper('getName', function(profile, username) {
 			firstname: 'Hodor',
 			lastname: '',
 			adress: 'Hodor',
-			phone: 'Hodor',
-			image: 'Hodor',
+			phone: 'Hodor'
 		});
+		Meteor.call("updateProfileImage", "Hodor");
 		return;
 	}
 
