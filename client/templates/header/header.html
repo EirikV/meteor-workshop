@@ -1,0 +1,28 @@
+<template name="header">
+	<header>
+		<section class="container">
+			{{> actionBar}}
+
+			{{#if isHome}}
+				<div class="post row">
+					<div class="bubble">
+						{{> newPost}}
+					</div>
+					<div class="meta row">
+						{{#if currentUser}}
+							{{#with currentUser}}
+									<div class="avatar">
+										<img src="/img/user.png" alt="profile picture" />
+									</div>
+									<div class="username">
+										<h1>{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</h1>
+										<h2>{{username}}</h2>
+									</div>
+							{{/with}}
+						{{/if}}
+					</div>
+				</div>
+			{{/if}}
+		</section>
+	</header>
+</template>

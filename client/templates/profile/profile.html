@@ -1,0 +1,30 @@
+<template name="editProfile">
+	<section class="container profile">
+		<div class="row">
+			<div class="avatar">
+				<img src="/img/user.png" alt="profile picture" />
+			</div>
+			<div class="username">
+				<h1>{{getName user.profile user.username}}'s profile</h1>	
+			</div>				
+		</div>		
+		<div class="row">				
+			<form class="profileForm">
+				<div class="{{displayClass editPermissions}} fields">
+					
+				</div>
+				{{#if editPermissions}}
+					<button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
+				{{/if}}
+			</form>
+			{{#if editPermissions}}
+				<article class="uploadProfilePic">
+					<span class="">
+						<label for="profilepic">Upload a new profile image:</label>
+						<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file" />
+					</span>
+				</article>
+			{{/if}}
+		</div>
+	</section>
+</template>

@@ -1,0 +1,26 @@
+<template name="viewPost">
+    <div class="post row">
+        <div class="bubble">
+            <div class="content">
+                <div class="text row">
+                    <!--Text should go here-->
+                </div>
+                <div class="tags row">
+                    <!--Iterate over some tags maybe?-->
+                </div>
+            </div>
+        </div>
+
+        <div class="meta row">
+            {{#with getUser userId}}
+                <div class="avatar">
+                    <img src="/img/user.png" alt="image" />
+                </div>
+                <div class="username">
+                    <h1><span class="name">{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</span></h1>
+                    <h2>{{username}}</h2>
+                </div>
+            {{/with}}
+        </div>
+    </div>
+</template>
