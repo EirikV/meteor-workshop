@@ -7,12 +7,11 @@ var addPost = function(text, e) {
     if(Meteor.user().username === "Hodor") {
         text = text.replace(/[A-Za-z0-9æøåÆØÅ]+/gi, "HODOR");
     }
-    Meteor.call("addPost", text, function(error, result) {
-        if(!error) {
-            $(e.currentTarget).find('textarea').val('');
-        } else {
+    $(e.currentTarget).find('textarea').val('');
+    Meteor.call("addPost", text, function(error, result) {               
+        if(error) {
             Notification.error('Oh no! Your post was not created.');
-        }
+        } 
     });
 }
 
