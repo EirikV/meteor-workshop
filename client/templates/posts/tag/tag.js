@@ -5,5 +5,13 @@ Template.tag.helpers({
         } else {
             return 'tag-not-found';
         }
+	},
+
+	getTagId: function(tag){
+		return tag._id;
+	},
+
+	fetchTag: function(tag, postId) {
+		return Tags.findOne({postId: postId, tag: tag});
 	}
 })
