@@ -19,7 +19,7 @@ var Instagram = function(){
                }
            }
 
-          var random = Math.round(Math.random() * images.length);
+          var random = Math.round(Math.random() * (images.length-1));
           var selected = images[random];
 
           return image = {
