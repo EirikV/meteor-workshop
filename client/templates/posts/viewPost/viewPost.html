@@ -7,13 +7,7 @@
                 </div>
                 <div class="tags row">
                     {{#each tags}}
-                        {{#with fetchTag this ../_id}}
-                            {{#if this}}
-                                {{>tag}}
-                            {{else}}
-                                <a href="#" alt="#{{tag}}"><span class="tagLoading"></span></a>
-                            {{/if}}
-                        {{/with}}
+                        {{>tag}}
                     {{/each}}
                 </div>
             </div>

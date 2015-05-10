@@ -6,10 +6,6 @@ Template.viewPost.helpers({
 			username: user.username,
 			profile: user.profile
 		};
-	},
-	
-	fetchTag: function(tag, postId) {
-		return Tags.findOne({postId: postId, tag: tag});
 	}
 
 })
