@@ -7,9 +7,10 @@ Template.newPost.events({
 	'submit form': function(e) {
 	    e.preventDefault();
 
-	    var data = getFormValue(e);
-
-        Meteor.call("addNewPost", data, function(error, result) {
+	    var text = getFormValue(e);
+        
+        
+        Meteor.call("addPost", text, function(error, result) {
             if(!error) {
                 $(e.currentTarget).find('textarea').val('');
             } else {
@@ -17,21 +18,6 @@ Template.newPost.events({
             }
         });
 	}
-
-//    'keyup .tweet': function(e) {
-//        e.preventDefault();
-//
-//        if(e.which !== 32) {
-//            return;
-//        }
-//
-//        var data = getFormValue(e);
-//
-//        Meteor.call("matchPostWithTags", data, function(error, result) {
-//            console.log(error, result);
-//        });
-//    }
-
 });
 
 

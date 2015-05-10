@@ -13,35 +13,29 @@
             });
         };
 
-        var instagramFromTags = function(tags) {
-            return _.map(tags, function(tag) {
-                return Tweeteor.instagram.getImage(tag);
-            });
+        var instagramFromTags = function(tag) {
+            return Tweeteor.instagram.getImage(tag);
         };
 
-        var addNew = function(post) {
-             if(!post.text || !post.text.trim()){
+        var addNew = function(text) {
+             if(!text || !text.trim()){
                  throw new Meteor.Error('Empty post');
              }
-
-             post = matchWithTags(post);
-
-             Posts.insert(post);
+            var tags = filterTags(text);
+            var id = Posts.insert({
+                text: text,
+                createdAt: new Date(),
+                userId: Meteor.userId,
+                tags: tags
+            });
+            _.each(tags, function(tag) {
+                var tag = instagramFromTags(tag);
+                tag.postId = id;
+                Tags.insert(tag);
+            });      
          };
-
-         var matchWithTags = function(post) {
-              if(!post.text || !post.text.trim()){
-                  return;
-              }
-
-             return _.extend(post, {
-                tags: instagramFromTags(filterTags((post.text.trim())))
-             });
-         }
-
         return {
-            add: addNew,
-            matchTags: matchWithTags
+            add: addNew
         };
 
     };

@@ -1,0 +1,9 @@
+<template name="tag">
+	<div class="tag">
+		{{#if imgs}}
+	    	<a href="{{link}}" alt="#{{tag}}" target="_blank"><img src="{{imgs.low_resolution.url}}" alt="image" /></a>
+		{{else}}
+	    	<a href="#" alt="#{{tag}}"><span class="{{tagError error}}"></span></a>
+		{{/if}}
+	</div>
+</template>

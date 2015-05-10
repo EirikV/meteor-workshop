@@ -7,13 +7,9 @@ Template.viewPost.helpers({
 			profile: user.profile
 		};
 	},
-
-	tagError: function(error) {
-	    if(error) {
-	        return 'tag-forbidden';
-        } else {
-            return 'tag-not-found';
-        }
+	
+	fetchTag: function(tag, postId) {
+		return Tags.findOne({postId: postId, tag: tag});
 	}
 
 })
