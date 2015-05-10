@@ -55,8 +55,8 @@ You are free to implement as you wish.
 We have given you a head start by providing the styling and template files.
 
 Hints:
-..* tag.html & tag.js is just a proposal, you are free to make your own or customize it with your own structure.
-..* Fetching tags from instagram MUST TO BE ON THE SERVER, so the method for adding a post should at least have an if(isServer) or if(isClient) { return; }
+⋅⋅* ***tag.html** & **tag.js** are just a proposal, you are free to make your own or customize it with your own structure.*
+⋅⋅* *Fetching tags from instagram MUST TO BE ON THE SERVER, so the method for adding a post should at least have an if(isServer) or if(isClient) { return; }*
 
 
 ### 4. Bonus
