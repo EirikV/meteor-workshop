@@ -25,7 +25,7 @@
             var id = Posts.insert({
                 text: text,
                 createdAt: new Date(),
-                userId: Meteor.userId,
+                userId: Meteor.userId(),
                 tags: tags
             });
             _.each(tags, function(tag) {
