@@ -3,10 +3,10 @@
 
 This is a workshop for JS-Platform at Bekk Consulting.
 
-The objective is to learn about Meteor.js by building Tweeteor.
+The objective is to learn about Meteor (not to be confused with meteorites or comets) by building Tweeteor.
 Tweeteor is a fun new micro-blog that combines your hashtags with instagram pictures.
 
-[Meteor.js documentation](http://docs.meteor.com/#/full/)
+[Meteor documentation](http://docs.meteor.com/#/full/)
 
 ## Tasks:
 
@@ -30,25 +30,25 @@ To get a login-button simple add: {{>loginButton}} to the desired template (pref
 
 Hint: It might be useful to have a look in **accountsConfig.js** after you have acquired the packages.
 
-   So why do Meteor.js need a new packaging system? Why can't they just use npm or something?
+   So why does Meteor need a new packaging system? Why can't they just use npm or something?
    According to Meteor, this is because Meteor applications, and thereby packages have the ability to be isomorphic.
 
 2. Once you've got accounts up and running, try to add some inputs to the profile page. This could, for example be, first- and lastname, address, and phone number.
 At this point it would be awesome to test out template inclusion (`{{>profileFormField}}`).
 
-   Templates in Meteor.js look like mustache or handlebars, but are not.
-   Meteor.js uses its own Spacebars templating language inspired by mustache/handlebars.
+   Templates in Meteor look like mustache or handlebars, but are not.
+   Meteor uses its own Spacebars templating language inspired by mustache/handlebars.
 
-3. In Meteor.js we get reactive programming out of the box.
+3. In Meteor we get reactive programming out of the box.
 So our next fun little task is to test out the session-object. Attempt to make the users first- and lastname in the profile page header change whilst the user is typing.
 It might be useful to make a `templateHelper` for this task.
 
-4. Meteor.js is bundled with MongoDB. There already exist a `users` collection with the accounts packages you added in step 1.
+4. Meteor is bundled with MongoDB. There already exist a `users` collection with the accounts packages you added in step 1.
 Now would be the time to update you `users` collection with the input that can be collected from the profile.
 This would also be the time to check out **methods** in Meteor.
 
 5. Here is a fun little step. Try build a helper to set the profile picture. This step is optional (if you are satisfied with the default dull gray anonymous user image)
-Hint: Use the `image` collection for uploading the profile pictures.
+Hint: Use the `image` collection for uploading the profile pictures. We have provided some of the code, but this [tutorial](https://medium.com/@victorleungtw/how-to-upload-files-with-meteor-js-7b8e811510fa) might be helpful in order to understand it. 
 
 ### 3. Posts
 Oh, yes! This is the big one, here is where the fun starts.
@@ -66,6 +66,8 @@ Hints:
 
 Here are some bonus tasks that are not in the solution branch:
 
-1. Make a tag-cloud and bundle it in a Meteor pacakage.
+1. Enable editing and deleting of posts.
 
-2. Attempt to fetch images from instagram while the user is typing.
+2. Make a tag-cloud and bundle it in a Meteor pacakage.
+
+3. Attempt to fetch images from instagram while the user is typing.
