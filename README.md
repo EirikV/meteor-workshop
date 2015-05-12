@@ -45,7 +45,7 @@ Now would be the time to update you `users` collection with the input that can b
 This would also be the time to check out **methods** in Meteor.
 
 5. Here is a fun little step. Try build a helper to set the profile picture. This step is optional (if you are satisfied with the default dull gray anonymous user image)
-Hint: Use the `image` collection for uploading the profile pictures.
+Hint: Use the `image` collection for uploading the profile pictures. We have provided some of the code, but this [tutorial](https://medium.com/@victorleungtw/how-to-upload-files-with-meteor-js-7b8e811510fa) might be helpful in order to understand it. 
 
 ### 3. Posts
 Oh, yes! This is the big one, here is where the fun starts.
