@@ -3,11 +3,13 @@
 		<section class="container">
 			{{> actionBar}}
 
-			{{#if isHome}}
 				<div class="post row">
-					<div class="bubble">
-						{{> newPost}}
-					</div>
+					{{#if isHome}}
+						<div class="bubble">
+							{{> newPost}}
+						</div>
+					{{/if}}
+
 					<div class="meta row">
 						{{#if currentUser}}
 							{{#with currentUser}}
@@ -22,7 +24,6 @@
 						{{/if}}
 					</div>
 				</div>
-			{{/if}}
 		</section>
 	</header>
 </template>
