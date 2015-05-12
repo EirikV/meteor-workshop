@@ -3,6 +3,21 @@ header {
     color: @off-white;
 
     .post {
+        &:nth-child(2n+0) {
+            >.meta {
+                justify-content: inherit;
+
+                >.avatar {
+                    order: inherit;
+                    margin-left: inherit;
+                }
+                >.username {
+                    margin-left: 5px;
+                    text-align: inherit;
+                }
+            }
+        }
+
         .tweet {
             width: 100%;
             min-width: 100%;
