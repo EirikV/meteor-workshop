@@ -25,6 +25,7 @@ For you Windows users, there is also a **dev.bat**. Our pleasure!
 ### 2. Profile
 1. We are going to take a look at meteors package system, [atmosphere](https://atmospherejs.com).
 Head over there and get `accounts-password` and `accounts-ui` for your project.
+It can be helpful to look at the extended documentation on [docs.meteor.com](http://docs.meteor.com/#/full/accounts_api)
 
    To get a login-button simple add: {{> loginButtons}} to the desired template (preferably the actionBar, if currentUser is not logged in).
 
