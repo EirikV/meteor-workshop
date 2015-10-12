@@ -8,6 +8,14 @@ Template.viewPost.helpers({
 			username: user.username,
 			profile: user.profile
 		};
+	},
+	fetchText: function() {
+		var activePost = Posts.findOne(Session.get('activePost'));
+		if(activePost && activePost._id === this._id) {
+			var activeText = Session.get('activeTagText');
+			return activeText ? activeText : this.text;
+		}
+		return this.text;
 	}
 
 });
@@ -17,30 +25,25 @@ Template.viewPost.events({
 		if(!this.text){
 			return;
 		}
-
-		post = {
-			target: e.currentTarget,
-			text: this.text,
-			markupText: this.text
-		}
-
+		Session.set('activePost', this._id);
 	},
 
 	'mouseleave .post': function(e) {
-		post = {};
+		Session.delete('activePost');
 	},
 
 	'mouseenter .tag a': function(e) {
-		if(!post.text){
+		var activePost = Posts.findOne(Session.get('activePost'));
+		
+		if(!activePost) { 
 			return;
 		}
 
-		post.markupText = post.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>');
-		$(post.target).find('.text').html(post.markupText);
+		var markup = activePost.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>');
+		Session.set('activeTagText', markup);
 	},
 
 	'mouseleave .tag a': function(e) {
-		$(post.target).find('.text').html(post.text);
-		post.markupText = post.text;
+		Session.delete('activeTagText');
 	}
 });
