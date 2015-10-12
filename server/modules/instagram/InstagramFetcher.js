@@ -22,6 +22,12 @@ var InstagramFetcherHandler = function() {
 
         check( cb, Function );
 
+        // Make sure user has provided AUTH
+        if(!that.checkAuth()) {
+          cb([], null, 'Not authenticated');
+          return;
+        }
+
         var options = {
             params: { client_id: Meteor.settings.InstagramAPI.CLIENT_ID }
         };
@@ -81,15 +87,21 @@ var InstagramFetcherHandler = function() {
         that.log('--> InstagramFetcher.checkAuth()…');
 
         // Make sure there is a InstagramAPI object in settings
-        if (!Meteor.settings.InstagramAPI)
-            throw new Error('No "InstagramAPI" in settings.');
+        if (!Meteor.settings.InstagramAPI) {
+            that.log('No "InstagramAPI" in settings.');
+            return false;
+        }
 
         // Make sure user has provided client id and secret
-        if (!Meteor.settings.InstagramAPI.CLIENT_ID)
-            throw new Error('No "InstagramAPI.CLIENT_ID" in settings.');
+        if (!Meteor.settings.InstagramAPI.CLIENT_ID) {
+            that.log('No "InstagramAPI.CLIENT_ID" in settings.');
+            return false;
+        }
 
-        if (!Meteor.settings.InstagramAPI.CLIENT_SECRET)
-            throw new Error('No "InstagramAPI.CLIENT_SECRET" in settings.');
+        if (!Meteor.settings.InstagramAPI.CLIENT_SECRET) {
+            that.log('No "InstagramAPI.CLIENT_SECRET" in settings.');
+            return false;
+        }
 
         that.log('--> InstagramFetcher.checkAuth() DONE!');
 
@@ -100,8 +112,6 @@ var InstagramFetcherHandler = function() {
 
     that.init = function () {
         that.log('\n--> init InstagramFetcher…');
-        // Make sure user has provided AUTH
-        that.checkAuth();
     };
 
     that.init();
