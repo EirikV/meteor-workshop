@@ -1,7 +1,4 @@
 Template.registerHelper('getAvatar', function(imageId) {
-	if(imageId === "Hodor") {
-		return "/img/hodor.jpg";
-	}
 	var image = Images.findOne(imageId);
 	if(!image)
 		return '/img/user.png';
@@ -26,17 +23,6 @@ Template.registerHelper('getName', function(profile, username) {
 	    return profile.firstname + ' ' + profile.lastname;
 	}
 	
-	if(username === 'Hodor') {
-		updateProfile({
-			firstname: 'Hodor',
-			lastname: '',
-			adress: 'Hodor',
-			phone: 'Hodor'
-		});
-		Meteor.call("updateProfileImage", "Hodor");
-		return;
-	}
-
 	var firstname = [
 	    'Captain',
 	    'Jane',
