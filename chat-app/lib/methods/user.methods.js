@@ -1,23 +1,29 @@
 var createUser = function() { 
     var firstname = [
-        'Captain',
-        'Jane',
-        'John',
-        'Ola',
-        'Miss.',
-        'Mr.',
-        'Doctor',
-        'Mrs.',
-        'Sir.'
+        'Anonymous',
+        'Random',
+        'Unidentified',
+        'Nameless',
+        'Unnamed',
+        'Unknown',
+        'Incognito'
     ];
 
     var lastname = [
-        'NoName',
-        'Nameless',
-        'JohnDoe',
-        'Nordmann',
-        'HazNoName',
-        'QuestionMark'
+        'Sheep',
+        'Badger',
+        'Elephant',
+        'Tiger',
+        'Dog',
+        'Wolf',
+        'Cat',
+        'Turtle',
+        'Shark',
+        'Dolphin',
+        'Cow',
+        'Hamster',
+        'Giraffe',
+        'Lion'
     ];        
 
     return {
@@ -28,14 +34,17 @@ var createUser = function() {
 
 Meteor.methods({
     addUser: function() {
-        
         var user = createUser();
         var count = Users.find({firstname: user.firstname, lastname: {$regex: '^' + user.lastname}}).count({});
         var lastname = count > 0 ? user.lastname + count : user.lastname;
         var inserted = Users.insert({
             firstname: user.firstname,
-            lastname: lastname
+            lastname: lastname,
+            lastOnline: Date.now()
         });
         return Users.findOne(inserted);
+    },
+    setUserOnline: function(user) {
+        Users.update(user._id, {$set: {lastOnline: Date.now()}});
     }
 });

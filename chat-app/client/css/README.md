@@ -3,7 +3,7 @@
 This is just a helpful guide of how to structure the style your app.
 You are, of course, free to style the application the way you choose.
 
-You can grab the CSS [here](char-app.css).
+You can grab the CSS [here](chat-app.css).
 
 ## Typogrpahy
 
