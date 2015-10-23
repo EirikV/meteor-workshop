@@ -3,7 +3,7 @@
 This is just a helpful guide of how to structure the style your app.
 You are, of course, free to style the application the way you choose.
 
-You can grab the CSS [here](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/char-app.css).
+You can grab the CSS [here](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/char-app.css).
 
 ## Typogrpahy
 
@@ -24,7 +24,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ## Base structure
 
-![Base structure](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/base-structure.png)
+![Base structure](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/base-structure.png)
 
 ```html
     <div class="app-container">
@@ -55,7 +55,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ## Post - Input
 
-![Post-Input](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/textbox.png)
+![Post-Input](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/textbox.png)
 
 ```html
     <textarea name="post" placeholder="What's up?"></textarea>
@@ -65,7 +65,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ### Message
 
-![Message](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/message.png)
+![Message](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/message.png)
 
 ```html
     <div class="message">
@@ -79,7 +79,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ### Message - Current user
 
-![Message](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/message-current-user.png)
+![Message](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/message-current-user.png)
 
 ```html
     <div class="message -current">
@@ -95,7 +95,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ### User - Online
 
-![User - Online](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/user-online.png)
+![User - Online](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/user-online.png)
 
 ```html
     <div class="user">
@@ -106,7 +106,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ### User - Offline
 
-![User - Offline](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/user-offline.png)
+![User - Offline](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/user-offline.png)
 
 ```html
     <div class="user">
@@ -117,7 +117,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ### User - Current user
 
-![User - Offline](/EirikV/meteor-workshop/raw/chat-solution/chat-app/css/example-images/user-current.png)
+![User - Offline](/EirikV/meteor-workshop/raw/chat-solution/chat-app/client/css/example-images/user-current.png)
 
 ```html
     <div class="user -current">
