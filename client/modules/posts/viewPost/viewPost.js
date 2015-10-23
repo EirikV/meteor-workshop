@@ -1,4 +1,5 @@
-var post = {};
+var post;
+var activeText = new ReactiveVar('');
 
 Template.viewPost.helpers({
 	getUser: function(userId) {
@@ -10,12 +11,8 @@ Template.viewPost.helpers({
 		};
 	},
 	fetchText: function() {
-		var activePost = Posts.findOne(Session.get('activePost'));
-		if(activePost && activePost._id === this._id) {
-			var activeText = Session.get('activeTagText');
-			return activeText ? activeText : this.text;
-		}
-		return this.text;
+		var activeTextValue = activeText.get();
+		return activeTextValue && this._id === post._id ? activeTextValue : this.text;
 	}
 
 });
@@ -25,25 +22,21 @@ Template.viewPost.events({
 		if(!this.text){
 			return;
 		}
-		Session.set('activePost', this._id);
+		post = this;
 	},
 
 	'mouseleave .post': function(e) {
-		Session.delete('activePost');
+		post = undefined;
 	},
 
 	'mouseenter .tag a': function(e) {
-		var activePost = Posts.findOne(Session.get('activePost'));
-		
-		if(!activePost) { 
+		if(!post) { 
 			return;
 		}
-
-		var markup = activePost.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>');
-		Session.set('activeTagText', markup);
+		activeText.set(post.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>'));
 	},
 
 	'mouseleave .tag a': function(e) {
-		Session.delete('activeTagText');
+		activeText.set(post.text);
 	}
 });
