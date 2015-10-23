@@ -1,0 +1,12 @@
+<template name="MessageContainer">
+    <section class="message-container">   
+        <section class="messages">
+            {{#each messages}}
+                {{> Message}}
+            {{/each}}
+        </section>
+        <section class="post">
+            <textarea name="post" placeholder="What's up?"></textarea>
+        </section>        
+    </section>
+</template>
