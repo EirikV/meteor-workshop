@@ -1,14 +1,56 @@
 <head>
-  <title>chat-app</title>
+    <title>Meteor Chat</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+    <div class="app-container">
+        <header class="header">
+            <h1>Meteor Chat</h1>
+        </header>
 
-  {{> hello}}
+        <section class="content-container">
+
+            <section class="message-container">
+
+                <section class="messages">
+                    <div class="message">
+                        <div class="content">
+                            <div class="author">Barack Obama</div>
+                            <div class="text">This app is cool!</div>
+                            <div class="time">10.10.2014</div>
+                        </div>
+                    </div>
+                    <div class="message -current">
+                        <div class="content">
+                            <div class="author">Donald Trump</div>
+                            <div class="text">I agree, enjoy it very much!</div>
+                            <div class="time">10.10.2014</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <textarea name="post" placeholder="What's up?"></textarea>
+                </section>
+
+            </section>
+
+            <section class="users">
+                <div class="user">
+                    <div class="status -online"></div>
+                    <div class="name">Donald Trump</div>
+                </div>
+                <div class="user -current">
+                    <div class="status -offline"></div>
+                    <div class="name">Barack Obama</div>
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+

@@ -1,1 +1,184 @@
-/* CSS declarations go here */
+/*
+* Colors
+* Black: #464646
+* Off-White: #f1f1f1
+* Gray: #ccc
+* Highlight: #db4e4d (red-ish)
+*
+*/
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Amatic SC', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container > .header {
+    text-align: center;
+    height: 50px;
+    color: #f1f1f1;
+    background: #464646;
+}
+
+.app-container > .content-container {
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: row;
+}
+
+.content-container > .message-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.users {
+    flex: 1;
+    padding: 10px;
+    background: #ccc;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.users > .user {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    background: #f1f1f1;
+    color: #464646;
+    height: 50px;
+}
+.users > .user.-current {
+    background: #464646;
+    color: #f1f1f1;
+}
+
+.users > .user > .status {
+    flex: 1;
+    height: 50px;
+    width: 50px;
+    max-width: 50px;
+    margin-right: 10px;
+    border-right: 1px solid #f1f1f1;
+}
+
+.users > .user > .status.-offline {
+    background: #db4e4d;
+}
+
+.users > .user > .status.-online {
+    background: #008000;
+}
+
+.users > .user > .name {
+    flex: 3;
+    padding-top: 15px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.message-container > .messages {
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100% - 100px);
+    height: calc(100% - 100px);
+    padding: 20px 10px 0 10px;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages > .message {
+    margin-bottom: 20px;
+}
+
+.messages > .message > .content {
+    color: #464646;
+    padding: 10px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.messages > .message > .content > .author,
+.messages > .message > .content > .time {
+    color: #f1f1f1;
+    font-size: 0.8em;
+}
+
+.messages > .message > .content > .author {
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.messages > .message > .content > .time {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.messages > .message.-current > .content > .author,
+.messages > .message.-current > .content > .time {
+    color: #464646;
+}
+
+.messages > .message:after {
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #ccc;
+    margin: 0 0 0 20px;
+}
+
+.messages > .message.-current > .content {
+    color: #f1f1f1;
+    background: #db4e4d;
+}
+
+.messages > .message.-current:after {
+    float: right;
+    border-top: 20px solid #db4e4d;
+    margin: 0 20px 0 0;
+}
+
+.post {
+    padding: 10px;
+    height: 100px;
+    background: #f1f1f1;
+}
+
+.post > textarea[name="post"] {
+    resize: none;
+    padding: 10px;
+    color: #464646;
+    height: 80px;
+    width: calc(100% - 20px);
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+@media all and (max-width: 700px) {
+
+}
