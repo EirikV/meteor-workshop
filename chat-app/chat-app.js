@@ -1,23 +1,23 @@
+Messages = new Mongo.Collection('Messages');
+
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
-
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+    Template.MessageList.helpers({
+        messages: function() {
+            return Messages.find({});
+        }
+    });
+    Template.Message.helpers({
+        date: function() {
+            return this.timestamp.toLocaleDateString();
+        }
+    })
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+    Meteor.startup(function() {
+        if(Messages.find({}).count({}) === 0) {
+            Messages.insert({ text: 'This is a message', timestamp: new Date(), user: 'kjohann'});
+            Messages.insert({ text: 'This is a another message', timestamp: new Date(), user: 'someone'});
+        }    
+    });
 }

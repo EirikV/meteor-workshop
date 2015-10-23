@@ -1,14 +1,23 @@
-<head>
-  <title>chat-app</title>
-</head>
+<template name="Message">
+    <div class="message">
+        <span class="text">{{text}}</span>
+        <span class="date">{{date}}</span>
+        <span class="user">{{user}}</span>
+    </div>
+</template>
+
+<template name="MessageList">
+    {{#each messages}}
+        {{> Message}}
+    {{/each}}
+</template>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
+<section id="main">
+
+{{> MessageList}}
+
+</section>
+
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
