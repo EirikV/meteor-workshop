@@ -1,24 +1,40 @@
 <head>
-<title>Meteor Chat</title>
+    <title>Meteor Chat</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
 </head>
 
-<template name="Message">
-    <div class="message">
-        <span class="text">{{text}}</span>
-        <span class="date">{{date}}</span>
-        <span class="user">{{user}}</span>
-    </div>
-</template>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>Meteor Chat</h1>
+        </header>
 
-<template name="MessageContainer">
-    {{#each messages}}
-        {{> Message}}
-    {{/each}}
+        <section class="content-container">
 
-    <textarea placeholder="write a message"></textarea>
-</template>
+            <section class="message-container">
 
-<template name="User">
+                <section class="messages">
+                    <div class="message">
+                        <div class="content">
+                            <div class="author">Barack Obama</div>
+                            <div class="text">This app is cool!</div>
+                            <div class="time">10.10.2014</div>
+                        </div>
+                    </div>
+                    <div class="message -current">
+                        <div class="content">
+                            <div class="author">Donald Trump</div>
+                            <div class="text">I agree, enjoy it very much!</div>
+                            <div class="time">10.10.2014</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <textarea name="post" placeholder="What's up?"></textarea>
+                </section>
+
+            </section>
     <div class="user">
     <span class="name">{{name}}</span>
     </div>
@@ -30,13 +46,21 @@
 {{/each}}
 </template>
 
-<body>
 
-<section id="main">
+            <section class="users">
+                <div class="user">
+                    <div class="status -online"></div>
+                    <div class="name">Donald Trump</div>
+                </div>
+                <div class="user -current">
+                    <div class="status -offline"></div>
+                    <div class="name">Barack Obama</div>
+                </div>
 
-{{> MessageContainer}}
+            </section>
 {{> UserContainer}}
 
-</section>
+        </section>
 
+    </div>
 </body>

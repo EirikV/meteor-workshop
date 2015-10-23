@@ -95,7 +95,6 @@ if (Meteor.isServer) {
     });
 }
 
-
 Meteor.methods({
     addMessage: function(text, user) {
         Messages.insert({
