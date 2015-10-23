@@ -1,16 +1,30 @@
 Messages = new Mongo.Collection('Messages');
 
 if (Meteor.isClient) {
-    Template.MessageList.helpers({
+    Template.MessageContainer.helpers({
         messages: function() {
             return Messages.find({});
         }
     });
+
+    Template.MessageContainer.events({
+        'keydown textarea': function(e) {
+            if(!(e.which === 13 && !e.shiftKey)) return;
+            Messages.insert({
+                text: $('textarea').val(),
+                timestamp: new Date(),
+                user: 'someuser'                
+            });
+        }
+    });
+
     Template.Message.helpers({
         date: function() {
             return this.timestamp.toLocaleDateString();
         }
-    })
+    });
+
+
 }
 
 if (Meteor.isServer) {
