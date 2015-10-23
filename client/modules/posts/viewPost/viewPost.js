@@ -36,7 +36,11 @@ Template.viewPost.events({
 		activeText.set(post.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>'));
 	},
 
-	'mouseleave .tag a': function(e) {
+	'mouseleave .tag a': function() {
+        activeText.set(post.text);
+	},
+
+	'click .tag a': function() {
 		activeText.set(post.text);
 	}
 });

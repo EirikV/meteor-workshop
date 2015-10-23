@@ -14,4 +14,4 @@ Template.tag.helpers({
 	fetchTag: function(tag, postId) {
 		return Tags.findOne({postId: postId, tag: tag});
 	}
-})
+});

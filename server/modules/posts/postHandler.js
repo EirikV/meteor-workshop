@@ -21,7 +21,7 @@ var PostHandler = function() {
          }
         var tags = filterTags(text);
         var id = Posts.insert({
-            text: text,
+            text: text.substring(0, 140),
             createdAt: new Date(),
             userId: Meteor.userId(),
             tags: tags
