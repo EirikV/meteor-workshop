@@ -18,11 +18,24 @@
     <textarea placeholder="write a message"></textarea>
 </template>
 
+<template name="User">
+    <div class="user">
+    <span class="name">{{name}}</span>
+    </div>
+</template>
+
+<template name="UserContainer">
+{{#each users}}
+    {{> User}}
+{{/each}}
+</template>
+
 <body>
 
 <section id="main">
 
 {{> MessageContainer}}
+{{> UserContainer}}
 
 </section>
 
