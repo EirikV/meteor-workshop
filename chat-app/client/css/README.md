@@ -27,30 +27,29 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![Base structure](example-images/base-structure.png)
 
 ```html
-    <div class="app-container">
-        <header class="header"><!-- Your title can go here --></header>
+<div class="app-container">
+    <header class="header"><!-- Your title can go here --></header>
 
-        <section class="content-container">
+    <section class="content-container">
 
-            <section class="message-container">
+        <section class="message-container">
 
-                <section class="messages">
-                    <!-- Add messeges in this section -->
-                </section>
-
-                <section class="post">
-                    <!-- Put your textarea/input here -->
-                </section>
-
+            <section class="messages">
+                <!-- Add messeges in this section -->
             </section>
 
-            <section class="users">
-                <!-- Show users here -->
+            <section class="post">
+                <!-- Put your textarea/input here -->
             </section>
 
         </section>
 
-    </div>
+        <section class="users">
+            <!-- Show users here -->
+        </section>
+
+    </section>
+</div>
 ```
 
 ## Post - Input
@@ -58,7 +57,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![Post-Input](example-images/textbox.png)
 
 ```html
-    <textarea name="post" placeholder="What's up?"></textarea>
+<textarea name="post" placeholder="What's up?"></textarea>
 ```
 
 ## Messages
@@ -68,13 +67,13 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![Message](example-images/message.png)
 
 ```html
-    <div class="message">
-        <div class="content">
-            <div class="author">Barack Obama</div>
-            <div class="text">This app is cool!</div>
-            <div class="time">10.10.2014</div>
-        </div>
+<div class="message">
+    <div class="content">
+        <div class="author">Barack Obama</div>
+        <div class="text">This app is cool!</div>
+        <div class="time">10.10.2014</div>
     </div>
+</div>
 ```
 
 ### Message - Current user
@@ -82,13 +81,13 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![Message](example-images/message-current-user.png)
 
 ```html
-    <div class="message -current">
-        <div class="content">
-            <div class="author">Donald Trump</div>
-            <div class="text">I agree, enjoy it very much!</div>
-            <div class="time">10.10.2014</div>
-        </div>
+<div class="message -current">
+    <div class="content">
+        <div class="author">Donald Trump</div>
+        <div class="text">I agree, enjoy it very much!</div>
+        <div class="time">10.10.2014</div>
     </div>
+</div>
 ```
 
 ## Users
@@ -98,10 +97,10 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![User - Online](example-images/user-online.png)
 
 ```html
-    <div class="user">
-        <div class="status -online"></div>
-        <div class="name">Donald Trump</div>
-    </div>
+<div class="user">
+    <div class="status -online"></div>
+    <div class="name">Donald Trump</div>
+</div>
 ```
 
 ### User - Offline
@@ -109,10 +108,10 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![User - Offline](example-images/user-offline.png)
 
 ```html
-    <div class="user">
-        <div class="status -offline"></div>
-        <div class="name">Donald Trump</div>
-    </div>
+<div class="user">
+    <div class="status -offline"></div>
+    <div class="name">Donald Trump</div>
+</div>
 ```
 
 ### User - Current user
@@ -120,8 +119,8 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ![User - Offline](example-images/user-current.png)
 
 ```html
-    <div class="user -current">
-        <div class="status -online"></div>
-        <div class="name">Barack Obama</div>
-    </div>
+<div class="user -current">
+    <div class="status -online"></div>
+    <div class="name">Barack Obama</div>
+</div>
 ```
