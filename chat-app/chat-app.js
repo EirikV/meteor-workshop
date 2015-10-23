@@ -42,7 +42,7 @@ if (Meteor.isClient) {
     Template.MessageContainer.events({
         'keydown textarea': function(e) {
             if(!(e.which === 13 && !e.shiftKey)) return;
-            Meteor.call('addMessage', $('textarea').val(), 'something', function(err) {
+            Meteor.call('addMessage', $('textarea').val(), Session.get('currentUser'), function(err) {
                 if(!err) {
                     $('textarea').val('');
                 }
@@ -58,7 +58,7 @@ if (Meteor.isClient) {
 
     Template.User.helpers({
         name: function() {
-            return this.firstname + this.lastname;
+            return this.firstname + ' ' + this.lastname;
         }
     });
 
@@ -67,6 +67,14 @@ if (Meteor.isClient) {
             return Users.find({});
         }
     });
+
+    Meteor.startup(function() {
+        Meteor.call('addUser', function(err, res) {
+            if(res) {
+                Session.set('currentUser', res);
+            }
+        });
+    })
 }
 
 if (Meteor.isServer) {
@@ -93,7 +101,18 @@ Meteor.methods({
         Messages.insert({
             text: text,
             timestamp: new Date(),
-            user: user                
+            user: user.firstname + ' ' + user.lastname                
         });        
+    },
+    addUser: function() {
+        
+        var user = createUser();
+        var count = Users.find({firstname: user.firstname, lastname: {$regex: '^' + user.lastname}}).count({});
+        var lastname = count > 0 ? user.lastname + count : user.lastname;
+        var inserted = Users.insert({
+            firstname: user.firstname,
+            lastname: lastname
+        });
+        return Users.findOne(inserted);
     }
 });
