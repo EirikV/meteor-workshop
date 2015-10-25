@@ -120,7 +120,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ```html
 <div class="user -current">
-    <div class="status -inactive"></div>
+    <div class="status -active"></div>
     <div class="name">Barack Obama</div>
 </div>
 ```
