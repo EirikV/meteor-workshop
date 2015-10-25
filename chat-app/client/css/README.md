@@ -19,7 +19,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 * White: #fff
 * Off-white: #f1f1f1
 * Gray: #ccc
-* Highlights/Online (red-ish): #db4e4d
+* Highlights/Active (red-ish): #db4e4d
 * Green: #008000
 
 ## Base structure
@@ -92,24 +92,24 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ## Users
 
-### User - Online
+### User - Active
 
-![User - Online](example-images/user-online.png)
+![User - Active](example-images/user-active.png)
 
 ```html
 <div class="user">
-    <div class="status -online"></div>
+    <div class="status -active"></div>
     <div class="name">Donald Trump</div>
 </div>
 ```
 
-### User - Offline
+### User - Inactive
 
-![User - Offline](example-images/user-offline.png)
+![User - Inactive](example-images/user-inactive.png)
 
 ```html
 <div class="user">
-    <div class="status -offline"></div>
+    <div class="status -inactive"></div>
     <div class="name">Donald Trump</div>
 </div>
 ```
@@ -120,7 +120,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 
 ```html
 <div class="user -current">
-    <div class="status -online"></div>
+    <div class="status -inactive"></div>
     <div class="name">Barack Obama</div>
 </div>
 ```

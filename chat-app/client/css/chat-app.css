@@ -67,11 +67,11 @@ h1, h2, h3, h4 {
     border-right: 1px solid #f1f1f1;
 }
 
-.users > .user > .status.-offline {
+.users > .user > .status.-inactive {
     background: #db4e4d;
 }
 
-.users > .user > .status.-online {
+.users > .user > .status.-active {
     background: #008000;
 }
 

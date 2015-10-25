@@ -32,6 +32,10 @@ var createUser = function() {
     }
 };
 
+var setUserActive = function(userId) {
+    Users.update(userId, {$set: {lastOnline: Date.now()}});
+};
+
 Meteor.methods({
     addUser: function() {
         var user = createUser();
@@ -44,7 +48,12 @@ Meteor.methods({
         });
         return Users.findOne(inserted);
     },
-    setUserOnline: function(user) {
-        Users.update(user._id, {$set: {lastOnline: Date.now()}});
+    initUserFromLocalStorage: function(userId){
+        var currentUser = Users.findOne({_id: userId});
+        setUserActive(currentUser._id);
+        return currentUser;
+    },
+    setUserActive: function(user) {
+        setUserActive(user._id);
     }
 });
