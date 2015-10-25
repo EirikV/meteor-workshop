@@ -50,7 +50,11 @@ Meteor.methods({
     },
     initUserFromLocalStorage: function(userId){
         var currentUser = Users.findOne({_id: userId});
-        setUserActive(currentUser._id);
+
+        if(currentUser) {
+            setUserActive(currentUser._id);
+        }
+
         return currentUser;
     },
     setUserActive: function(user) {
