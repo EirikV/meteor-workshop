@@ -16,7 +16,7 @@
         <div class="meta row">
             {{#with getUser userId}}
                 <div class="avatar">
-                    <img src="{{getAvatar profile.image}}" alt="image" />
+                    <div class="img" style="background-image: url('{{getAvatar profile.image}}')"></div>
                 </div>
                 <div class="username">
                     <h1><span class="name">{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</span></h1>
