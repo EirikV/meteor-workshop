@@ -1,8 +1,8 @@
 # Meteor Chat
 
-Welcome to this Meteor workshop made for BEKK. In this part you are going to build a chat application starting with nothing at all (except for this, very helpful readme). As you move through the tasks, you will learn about Meteor's basic concepts, and when you are done, you will be ready for more advanced Meteor tasks.
+Welcome to this Meteor workshop made for BEKK. In this part you are going to build a chat application starting with nothing at all (except for this very helpful readme). As you move through the tasks, you will learn about Meteor's basic concepts, and when you are done, you will be ready for more advanced Meteor tasks.
 
-So how is this chat application going to look like? Well, head over to a fully operational death star, ummm I mean chat application, over at [meteor.com](http://bekkchat.meteor.com) and check it out. Feel free chat with the other participants throughout the day.
+So what is this chat application going to look like? Well, head over to a fully operational death star, ummm I mean chat application, over at [meteor.com](http://bekkchat.meteor.com) and check it out. Feel free chat with the other participants throughout the day.
 
 ## Some resources to help you along
 * **[The full Meteor documentation](http://docs.meteor.com/#/full/quickstart)**
@@ -26,7 +26,7 @@ Time to dig into some code. We're gonna start off by looking at displaying some 
 
 *Tip 2: you can create a helper function for your message in *chat-app.js* to format the time property of a message.*
 
-*Tip 3: template helpers has to run on the client only, so wrap your client code in an if-statement: `if(Meteor.isClient)`*
+*Tip 3: template helper have to run on the client only, so wrap your client code in an if-statement: `if(Meteor.isClient)`*
 
 Great, now you have a template to display a single message. But in a chat application, you of course need to display several messages. So let's create another template that will hold all messages as well as the textarea for adding new messages - a *MessageContainer* if you will (more on adding a message later).
 
