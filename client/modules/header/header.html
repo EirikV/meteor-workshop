@@ -2,18 +2,19 @@
     <header>
         <section class="container">
             {{> actionBar}}
+            
+            {{#if isHome}}
+                <div class="post row">
+                    <div class="bubble">
+                        {{> newPost}}
+                    </div>
+                    
 
-            <div class="post row">
-                {{#if isHome}}
-                <div class="bubble">
-                    {{> newPost}}
+                    <div class="meta row">
+                    <!-- Display the current user's profile image, aka avatar here. Also, display the username as a link to the user's profile -->                    
+                    </div>
                 </div>
-                {{/if}}
-
-                <div class="meta row">
-                <!-- Display the current user's profile image, aka avatar here. Also, display the username as a link to the user's profile -->                    
-                </div>
-            </div>
+            {{/if}}
         </section>
     </header>
 </template>

@@ -1,20 +1,23 @@
 <template name="editProfile">
     <section class="container profile">
-        <div class="row">
+        <div class="meta row">
+        <!-- This snippet can be used to display a profile picture.. Given that you put a helper call in the {{}} of course
             <div class="avatar">
-                <div class="img" style="background-image: url('{{getAvatar user.profile.image}}')"></div>
+                <div class="img" style="background-image: url('{{}}')"></div>
             </div>
+            -->
             <div class="username">
                 <h1><!--Display the owner of the profile's name--></h1>
+                <h2>Profile</h2>
             </div>
         </div>
-        <div class="row">
-            <form class="profileForm">
+        <div class="form row">
+            <form class="profile-form">
                <!--Add a profile form here-->
             </form>
-            <article class="uploadProfilePic">
-					<!--Add image upload here-->
-            </article>
+            <div class="upload-profile-pic">
+				<!--Add image upload here-->
+            </div>
         </div>
     </section>
 </template>
