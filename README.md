@@ -148,6 +148,7 @@ Congratulations! You have now completed an introduction to Meteor. So what's nex
 1. The current user feature of the application hands you a new user each time you refresh the page. This isn't all that user friendly, so go ahead and fix it by introducing the use of localstorage to store the id of the current user. Then use this in your `Meteor.startup` function to ensure that you only get assigned a user once per browser.
 2. As of now a lot of the users in the list are probably inactive. Make functionality that tracks when users were last active and use this to mark inactive users in the same way as shown in the [style guide](chat-app/client/css/). Also, sort the list of users so that the active users are at the top.
 3. Users of the chat app all probably have the same feature request: being able to choose their own username. Give the people what they want!
+4. Display new messages at the bottom and add a autoscroll feature. Remember to not scroll if the scroll position isn't at the bottom!
 
 
 
