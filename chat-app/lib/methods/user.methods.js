@@ -1,4 +1,4 @@
-var createUser = function() { 
+var createUser = function () {
     var firstname = [
         'Anonymous',
         'Random',
@@ -24,20 +24,20 @@ var createUser = function() {
         'Hamster',
         'Giraffe',
         'Lion'
-    ];        
+    ];
 
     return {
-        firstname: firstname[Math.round(Math.random()*(firstname.length-1))],
-        lastname: lastname[Math.round(Math.random()*(lastname.length-1))] 
+        firstname: firstname[Math.round(Math.random() * (firstname.length - 1))],
+        lastname: lastname[Math.round(Math.random() * (lastname.length - 1))]
     }
 };
 
-var setUserActive = function(userId) {
+var setUserActive = function (userId) {
     Users.update(userId, {$set: {lastOnline: Date.now()}});
 };
 
 Meteor.methods({
-    addUser: function() {
+    addUser: function () {
         var user = createUser();
         var count = Users.find({firstname: user.firstname, lastname: {$regex: '^' + user.lastname}}).count({});
         var lastname = count > 0 ? user.lastname + count : user.lastname;
@@ -48,16 +48,16 @@ Meteor.methods({
         });
         return Users.findOne(inserted);
     },
-    initUserFromLocalStorage: function(userId){
+    initUserFromLocalStorage: function (userId) {
         var currentUser = Users.findOne({_id: userId});
 
-        if(currentUser) {
+        if (currentUser) {
             setUserActive(currentUser._id);
         }
 
         return currentUser;
     },
-    setUserActive: function(user) {
+    setUserActive: function (user) {
         setUserActive(user._id);
     }
 });

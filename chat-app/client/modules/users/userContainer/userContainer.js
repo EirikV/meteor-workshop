@@ -1,5 +1,5 @@
 Template.UserContainer.helpers({
-    users: function() {
+    users: function () {
         return Users.find({}, {sort: {lastOnline: -1}});
     }
 });

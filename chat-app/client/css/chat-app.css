@@ -53,6 +53,7 @@ h1, h2, h3, h4 {
     color: #464646;
     height: 50px;
 }
+
 .users > .user.-current {
     background: #464646;
     color: #f1f1f1;

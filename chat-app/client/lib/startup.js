@@ -1,7 +1,7 @@
-var findUserFromLocalStorage = function(userId) {
+var findUserFromLocalStorage = function (userId) {
     //DB is not ready on client yet. Find user on server.
-    Meteor.call('initUserFromLocalStorage', userId, function(err, res) {
-        if(res) {
+    Meteor.call('initUserFromLocalStorage', userId, function (err, res) {
+        if (res) {
             Session.set('currentUser', res);
         } else {
             createUser();
@@ -9,19 +9,19 @@ var findUserFromLocalStorage = function(userId) {
     });
 };
 
-var createUser = function(){
-    Meteor.call('addUser', function(err, res) {
-        if(res) {
+var createUser = function () {
+    Meteor.call('addUser', function (err, res) {
+        if (res) {
             Session.set('currentUser', res);
             localStorage.setItem('meteorChatUserId', res._id);
         }
     });
 };
 
-Meteor.startup(function() {
+Meteor.startup(function () {
     var userId = localStorage.getItem('meteorChatUserId');
 
-    if(userId) {
+    if (userId) {
         findUserFromLocalStorage(userId);
     } else {
         createUser();
