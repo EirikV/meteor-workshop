@@ -1,8 +1,8 @@
 <template name="actionBar">
     <div id="actions" class="row">
-        {{#if isNotHome}}
+        {{#unless isHome}}
             <span class="glyphicon glyphicon-home"></span>
-        {{/if}}
+        {{/unless}}
 
         {{#if currentUser}}
             <span class="glyphicon glyphicon-log-out"></span>

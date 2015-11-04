@@ -10,11 +10,3 @@ Template.actionBar.events({
         Router.go("Posts");
 	}
 });
-
-Template.actionBar.helpers({
-
-    isNotHome: function() {
-		return Router.current().location.get().path !== '/';
-    }
-
-});
