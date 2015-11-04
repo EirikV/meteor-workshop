@@ -16,9 +16,9 @@ var PostHandler = function() {
     };
 
     var addNew = function(text) {
-         if(!text || !text.trim()){
+        if(!text || !text.trim()){
              throw new Meteor.Error('Empty post');
-         }
+        }
         var tags = filterTags(text);
         var id = Posts.insert({
             text: text,
