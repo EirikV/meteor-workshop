@@ -15,41 +15,43 @@ If you have any questions at this point, now is a great time to ask them - we wi
 ### 1. First things first
 Open your favorite command line and make sure that your current working directory is where you want to create your app. Then type: `meteor create chat-app`.
 
-Then try running it by typing `cd chat-app` and then `meteor` - just to see that it works. Does it work? If yes, great! If no, shout out!
+Then try running it by typing `cd chat-app` and then `meteor` - just to see that it works. 
 
-The demo application that Meteor generates when you create an app is not needed for this workshop, so delete the content of *chat-app.html* and *chat-app.js*.
+You can access the application on [localhost:3000](http://localhost:3000). Does it work? If yes, great! If no, shout out!
+
+The demo application that Meteor generates when you create an app is not needed for this workshop, so delete the content of `chat-app.html` and `chat-app.js`.
 
 ### 2. Displaying some messages
-Time to dig into some code. We're gonna start off by looking at displaying some data, messages to be exact. Open *chat-app.html* and create a template for a message. A message should have properties for author, text and time.
+Time to dig into some code. We're gonna start off by looking at displaying some data, messages to be exact. Open `chat-app.html` and create a template for a message. A message should have properties for author, text and time.
 
-*Tip 1: use the markup from the [style guide](chat-app/client/css/).*
+*__Tip:__ use the markup from the [style guide](chat-app/client/css/).*
 
-*Tip 2: you can create a helper function for your message in *chat-app.js* to format the time property of a message.*
+*__Tip:__ you can create a helper function for your message in `chat-app.js` to format the time property of a message.*
 
-*Tip 3: template helper have to run on the client only, so wrap your client code in an if-statement: `if(Meteor.isClient)`*
+*__Tip:__ template helper have to run on the client only, so wrap your client code in an if-statement: `if(Meteor.isClient)`*
 
-Great, now you have a template to display a single message. But in a chat application, you of course need to display several messages. So let's create another template that will hold all messages as well as the textarea for adding new messages - a *MessageContainer* if you will (more on adding a message later).
+Great, now you have a template to display a single message. But in a chat application, you of course need to display several messages. So let's create another template that will hold all messages as well as the textarea for adding new messages - a `MessageContainer` if you will (more on adding a message later).
 
-*Tip 4: grab the markup from the base structure in the [style guide](chat-app/client/css/).*
+*__Tip:__ grab the markup from the base structure in the [style guide](chat-app/client/css/).*
 
-This template will need to iterate over some messages, so you will need to use a block helper. Also, the messages will need to come from somewhere. For now, create a template helper function in *chat-app.js* for your *MessageContainer* that just returns an array with some dummy messages. 
+This template will need to iterate over some messages, so you will need to use a block helper. Also, the messages will need to come from somewhere. For now, create a template helper function in `chat-app.js` for your `MessageContainer` that just returns an array with some dummy messages. 
 
-*Tip 5: remember to put your client code in an if: `if(Meteor.isClient)`*
+*__Tip:__ remember to put your client code in an if: `if(Meteor.isClient)`*
 
 ### 3. Do something a litte more useful
 Allright! You now have a basis for displaying some messages, but you are just returning a static array - that's not very useful, now is it? Time to store messages in the database.
 
-Open *chat-app.js* and create a new *Mongo.Collection* for your messages and store it in a global variable. Remember that this object has to be available on both the server AND the client, so don't put it in any `if(Meteor.isClient)` or `if(Meteor.isServer)` blocks.
+Open `chat-app.js` and create a new `Mongo.Collection` for your messages and store it in a global variable. Remember that this object has to be available on both the server AND the client, so don't put it in any `if(Meteor.isClient)` or `if(Meteor.isServer)` blocks.
 
 Now replace the static array in your template helper to return all messages instead (using a find query on the *Messages* collection).
 
-*Tip: you can verify that things are working by manually adding messages via the console in your browser. Just type `Messages.insert({/*properties goes here*/)` (assuming you named your variable 'Messages'. Since you haven't added the concept of users yet, just use some random value for that property.*
+*__Tip:__ you can verify that things are working by manually adding messages via the console in your browser. Just type `Messages.insert({/*properties goes here*/)` (assuming you named your variable `Messages`. Since you haven't added the concept of users yet, just use some random value for that property.*
 
 ### 4. Making adding messages a little simpler
 
-Open up *chat-app.html* and add a textarea to your MessageContainer template. Then open *chat-app.js* and register an event handler on your template. Write code to insert a new message into the *Messages* collection here. You can just hard code the *author* property for now.
+Open up `chat-app.html` and add a textarea to your MessageContainer template. Then open `chat-app.js` and register an event handler on your template. Write code to insert a new message into the `Messages` collection here. You can just hard code the `author` property for now.
 
-*Tip: If you use the 'keydown' event you can insert a message whenever the return key is hit.*
+*__Tip:__ If you use the `keydown` event you can insert a message whenever the return key is hit.*
 
 ### 5. Publish and subscribe
 
@@ -67,7 +69,7 @@ Now try writing a message. Didn't work? Check the console in your browser - it s
 
 To fix this, you need to create a *Meteor.method* for adding messages. So open up *chat-app.js* and add one. Then, replace the code in your textarea event handler with new code that calls this new method using `Meteor.call`.
 
-*Tip: You can have your method situated on the server only, but if you put it in the code that runs on both the server and the client, you will enable one of Meteor's coolest features: [latency compensation](http://docs.meteor.com/#/full/sevenprinciples)*
+*__Tip:__ You can have your method situated on the server only, but if you put it in the code that runs on both the server and the client, you will enable one of Meteor's coolest features: [latency compensation](http://docs.meteor.com/#/full/sevenprinciples)*
 
 ### 7. Introducing users
 
@@ -117,34 +119,34 @@ var createUser = function() {
 };
 ```
 
-To create a new user you will need a *Meteor.Method*, so go ahead and create one. Then you need to create a way to call it as the application is loading.
+To create a new user you will need a `Meteor.Method`, so go ahead and create one. Then you need to create a way to call it as the application is loading.
 
-This can be accomplished through the use of a *Meteor.startup* function. This particular startup function should live on the client, so create it inside your `if(Meteor.isClient)` block.
+This can be accomplished through the use of a `Meteor.startup` function. This particular startup function should live on the client, so create it inside your `if(Meteor.isClient)` block.
 
 ### 9. Associate messages and users
 
-Now that you have some users, it is time to set the current user as author whenever a message is written. To do this, you need to keep hold of the current user somehow. A *Session* variable is perfect for this.
+Now that you have some users, it is time to set the current user as author whenever a message is written. To do this, you need to keep hold of the current user somehow. A `Session` variable is perfect for this.
 
-Once again open *chat-app.js*. If you look at your *Method* for creating a user, this probably doesn't return anything. To be able to set the current user in a *Session* variable, you must retrieve the new user from the database after inserting, and then return this to the client.
+Once again open `chat-app.js`. If you look at your `Method` for creating a user, this probably doesn't return anything. To be able to set the current user in a `Session` variable, you must retrieve the new user from the database after inserting, and then return this to the client.
 
-*Tip 1: When calling insert on a collection, the return value is the _id field of the newly created document. Put this into a findOne call to retrieve the newly created document from the database.*
+*__Tip:__ When calling insert on a collection, the return value is the `_id` field of the newly created document. Put this into a findOne call to retrieve the newly created document from the database.*
 
-*Tip 2: Every Meteor.call function can take a callback as its second parameter. This callback has two parameters: error and result, where result is whatever the method returned.*
+*__Tip:__ Every Meteor.call function can take a callback as its second parameter. This callback has two parameters: error and result, where result is whatever the method returned.*
 
-Once you have the newly created user available on the client, simply store it in a *Session* variable (with a suitable name of course). Then use this session variable to set the author property in your *Method* for adding a new message.
+Once you have the newly created user available on the client, simply store it in a *Session* variable (with a suitable name of course). Then use this session variable to set the author property in your `Method` for adding a new message.
 
 ### 10. Highlighting yourself and your messages
 
-Using the *Session* variable with the current user, you can also highlight what messages are yours and which user in the list of users is you.
+Using the `Session` variable with the current user, you can also highlight what messages are yours and which user in the list of users is you.
 
-In *chat-app.js* create a template helper for your *Message* template that returns either `'-current` or `''` based if the message's name matches or does not match the current user's name respectively. Now you can use this helper in the *Message* template's markup to add the *current* class for your messages.
+In `chat-app.js` create a template helper for your `Message` template that returns either `'-current` or `''` based if the message's name matches or does not match the current user's name respectively. Now you can use this helper in the `Message` template's markup to add the `current` class for your messages.
 
-Create a similar helper for your *User* template and use it to highlight the current user in the list of users.
+Create a similar helper for your `User` template and use it to highlight the current user in the list of users.
 
 ### All done!
 Congratulations! You have now completed an introduction to Meteor. So what's next? If you feel done with the chat application, move on to [Tweeteor](https://github.com/EirikV/meteor-workshop/tree/tweeteor-solution) - a brand new social media site. Otherwise, here are some extra tasks for the chat app if you want to polish it.
 
-1. The current user feature of the application hands you a new user each time you refresh the page. This isn't all that user friendly, so go ahead and fix it by introducing the use of localstorage to store the id of the current user. Then use this in your *Meteor.startup* function to ensure that you only get assigned a user once per browser.
+1. The current user feature of the application hands you a new user each time you refresh the page. This isn't all that user friendly, so go ahead and fix it by introducing the use of localstorage to store the id of the current user. Then use this in your `Meteor.startup` function to ensure that you only get assigned a user once per browser.
 2. As of now a lot of the users in the list are probalby inactive. Make functionality that tracks when users were last active and use this to mark inactive users in the same way as shown in the [style guide](chat-app/client/css/). Also, sort the list of users so that the active users are at the top.
 3. Users of the chat app all probably have the same feature request: being able to choose their own username. Give the people what they want!
 
