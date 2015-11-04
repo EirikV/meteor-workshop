@@ -14,7 +14,7 @@
                     {{#if currentUser}}
                     {{#with currentUser}}
                     <div class="avatar">
-                        <img src="{{getAvatar profile.image}}" alt="profile picture"/>
+                        <div class="img" style="background-image: url('{{getAvatar profile.image}}')"></div>
                     </div>
                     <div class="username">
                         <h1>{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</h1>
