@@ -1,46 +1,63 @@
 .profile {
-  margin: 20px 0;
   color: @off-white;
+  max-width: 750px;
 
-  .avatar {
-    vertical-align: 10px;
+  > .meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 30px;
 
-    > .img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-size: 80px;
-      background-position: center;
+    * {
+      margin: 0;
+      flex-direction: column;
+    }
+
+    .avatar {
+      order: 1;
+      margin-right: 10px;
+
+      > .img {
+        width: 80px;
+        height: 80px;
+        background-size: 80px;
+        background-position: center;
+      }
+    }
+
+    .username {
+      order: 2;
+      margin-left: 5px;
+      margin-top: 8px;
+      text-align: left;
+
+      .name {
+        a {
+          color: @off-white;
+
+          &:hover {
+            text-decoration: none;
+            color: @light-gray;
+          }
+        }
+      }
+
+      h2 {
+        color: @light-gray;
+        font-size: 20px;
+      }
     }
   }
 
-  .username {
-    margin-left: 10px;
-    display: inline-block;
+  .form {
+    margin-top: 20px;
   }
 
-  .fields {
-    margin-top: 10px;
+  .upload-profile-pic {
+    margin-top: 20px;
 
-    .form-group {
-      max-width: 100%;
-    }
-  }
-
-  .uploadProfilePic {
-    margin-top: 5%;
-  }
-
-  .profilePicUploadInput {
-    width: 100%;
-  }
-
-  .avatar {
-    display: inline-block;
-    img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
+    input {
+      width: 100%;
     }
   }
 
