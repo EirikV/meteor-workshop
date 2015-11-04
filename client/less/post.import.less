@@ -1,276 +1,276 @@
 .post {
-    margin: 20px 0 40px;
+  margin: 20px 0 40px;
 
-   .row {
-        margin: 0;
+  .row {
+    margin: 0;
+  }
+
+  &:nth-child(2n+0) {
+    > .bubble {
+      &:after {
+        float: right;
+        margin-right: 20px;
+      }
     }
 
-    &:nth-child(2n+0) {
-        >.bubble {
-            &:after {
-                float: right;
-                margin-right: 20px;
-            }
+    > .meta {
+      justify-content: flex-end;
+
+      > .avatar {
+        order: 2;
+        margin-left: 5px;
+
+        > .img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background-size: 80px;
+          background-position: center;
         }
+      }
 
-        >.meta {
-            justify-content: flex-end;
+      > .username {
+        margin-left: 0;
+        text-align: right;
+      }
+    }
+  }
 
-            >.avatar {
-                order: 2;
-                margin-left: 5px;
+  > .bubble {
+    margin-bottom: 20px;
 
-                > .img {
-                  width: 80px;
-                  height: 80px;
-                  border-radius: 50%;
-                  background-size: 80px;
-                  background-position: center;
-                }
-            }
-
-            >.username {
-                margin-left: 0;
-                text-align: right;
-            }
-        }
+    &:after {
+      float: left;
+      content: " ";
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid @off-white;
+      margin-left: 20px;
     }
 
-    >.bubble {
-       margin-bottom: 20px;
+    > .content {
+      color: @dark-gray;
+      background-color: @off-white;
+      padding: 20px;
+      border-radius: 5px;
 
-        &:after {
-            float: left;
-            content: " ";
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid @off-white;
-            margin-left: 20px;
+      > .text {
+        font-size: 20px;
+
+        > .active-tag {
+          color: @blue;
+          text-decoration: underline;
         }
+      }
 
-        >.content {
-            color: @dark-gray;
-            background-color: @off-white;
-            padding: 20px;
-            border-radius: 5px;
-
-            >.text {
-                font-size: 20px;
-
-                >.active-tag {
-                    color: @blue;
-                    text-decoration: underline;
-                }
-            }
-
-            >.tags {
-                display: flex;
-                flex-wrap: wrap;
-                margin-top: 20px;
-                padding: 10px 0;
-                border-top: 1px solid @light-gray;
-
-                >.tag {
-                    flex-direction: column;
-                    max-width: 250px;
-                    word-break: break-all;
-                    display: inline-block;
-                    margin: 5px;
-
-                    > a {
-                        &:hover {
-                            > * {
-                                transform: scale(1.15);
-                            }
-                        }
-
-                        &.loading {
-
-                          > * {
-                            -moz-animation-duration: 500ms;
-                            -webkit-animation-duration: 500ms;
-                            animation-duration: 500ms;
-
-                            -moz-animation-name: scale;
-                            -webkit-animation-name: scale;
-                            animation-name: scale;
-
-                            -moz-animation-iteration-count: infinite;
-                            -webkit-animation-iteration-count: infinite;
-                            animation-iteration-count: infinite;
-
-                            -moz-animation-direction: alternate;
-                            -webkit-animation-direction: alternate;
-                            animation-direction: alternate;
-
-                            @-webkit-keyframes scale{
-                              from {
-                                transform: scale(1.0);
-                              }
-
-                              to {
-                                transform: scale(0.85);
-                              }
-                            }
-
-                           @-moz-keyframes scale{
-                              from {
-                                transform: scale(1.0);
-                              }
-
-                              to {
-                                transform: scale(0.85);
-                              }
-                            }
-
-                           @keyframes scale{
-                              from {
-                                transform: scale(1.0);
-                              }
-
-                              to {
-                                transform: scale(0.85);
-                              }
-                            }
-                          }
-                        }
-
-                        > * {
-                            transition: transform 100ms ease-in;
-                            width: 80px;
-                            height: 80px;
-                            border-radius: 50%;
-                        }
-
-                        .tag-forbidden, .tag-not-found, .tag-undefined {
-                            display: block;
-                            background: @blue;
-
-                            &:before {
-                                color: @off-white;
-                                font-size: 40px;
-                                font-weight: bold;
-                                display: inline-block;
-                                width: 100%;
-                                text-align: center;
-                                margin-top: 10px;
-                            }
-                        }
-
-                        .tag-forbidden {
-                            background: @red;
-
-                            &:before {
-                                content: "X";
-                            }
-                        }
-
-                        .tag-not-found:before {
-                            content: "?";
-                        }
-
-                        .tag-undefined {
-                            background: @light-gray;
-
-                            &:before {
-                                content: "#";
-                            }
-                        }
-
-                    }
-                }
-            }
-        }
-    }
-
-    >.meta {
+      > .tags {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        margin-top: 30px;
+        margin-top: 20px;
+        padding: 10px 0;
+        border-top: 1px solid @light-gray;
 
-        *  {
-            margin: 0;
-            flex-direction: column;
-        }
+        > .tag {
+          flex-direction: column;
+          max-width: 250px;
+          word-break: break-all;
+          display: inline-block;
+          margin: 5px;
 
-        .avatar {
-            vertical-align: 20px;
-
-            > img {
-                width: 80px;
-                height: 80px;
-                border-radius: 50%;
+          > a {
+            &:hover {
+              > * {
+                transform: scale(1.15);
+              }
             }
-        }
 
-        .username {
-            margin-left: 5px;
-            margin-top: 8px;
-            text-align: left;
-            
-            .name {
-                a {
-                    color: @off-white;   
-                    
-                    &:hover {
-                        text-decoration: none;
-                        color: @light-gray;
-                    }     
+            &.loading {
+
+              > * {
+                -moz-animation-duration: 500ms;
+                -webkit-animation-duration: 500ms;
+                animation-duration: 500ms;
+
+                -moz-animation-name: scale;
+                -webkit-animation-name: scale;
+                animation-name: scale;
+
+                -moz-animation-iteration-count: infinite;
+                -webkit-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+
+                -moz-animation-direction: alternate;
+                -webkit-animation-direction: alternate;
+                animation-direction: alternate;
+
+                @-webkit-keyframes scale {
+                  from {
+                    transform: scale(1.0);
+                  }
+
+                  to {
+                    transform: scale(0.85);
+                  }
                 }
-            }
 
-            h2 {
-                color: @light-gray;
-                font-size: 20px;
+                @-moz-keyframes scale {
+                  from {
+                    transform: scale(1.0);
+                  }
 
-                &:before {
-                    content: "@";
+                  to {
+                    transform: scale(0.85);
+                  }
                 }
-            }
-        }
 
+                @keyframes scale {
+                  from {
+                    transform: scale(1.0);
+                  }
+
+                  to {
+                    transform: scale(0.85);
+                  }
+                }
+              }
+            }
+
+            > * {
+              transition: transform 100ms ease-in;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%;
+            }
+
+            .tag-forbidden, .tag-not-found, .tag-undefined {
+              display: block;
+              background: @blue;
+
+              &:before {
+                color: @off-white;
+                font-size: 40px;
+                font-weight: bold;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+              }
+            }
+
+            .tag-forbidden {
+              background: @red;
+
+              &:before {
+                content: "X";
+              }
+            }
+
+            .tag-not-found:before {
+              content: "?";
+            }
+
+            .tag-undefined {
+              background: @light-gray;
+
+              &:before {
+                content: "#";
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  > .meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 30px;
+
+    * {
+      margin: 0;
+      flex-direction: column;
     }
 
-    @media (max-width: @screen-sm-min) {
-    >.bubble {
-        margin-bottom: 5px;
+    .avatar {
+      vertical-align: 20px;
+
+      > img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+    }
+
+    .username {
+      margin-left: 5px;
+      margin-top: 8px;
+      text-align: left;
+
+      .name {
+        a {
+          color: @off-white;
+
+          &:hover {
+            text-decoration: none;
+            color: @light-gray;
+          }
+        }
+      }
+
+      h2 {
+        color: @light-gray;
+        font-size: 20px;
+
+        &:before {
+          content: "@";
+        }
+      }
+    }
+
+  }
+
+  @media (max-width: @screen-sm-min) {
+    > .bubble {
+      margin-bottom: 5px;
     }
 
     &:nth-child(2n+0) {
 
-        >.meta {
-            margin-left: 0;
-            margin-right: 15px;
-        }
+      > .meta {
+        margin-left: 0;
+        margin-right: 15px;
+      }
     }
 
-    >.meta {
-        margin-left: 15px;
-        margin-top: 30px;
+    > .meta {
+      margin-left: 15px;
+      margin-top: 30px;
 
-        .avatar {
-            vertical-align: 10px;
+      .avatar {
+        vertical-align: 10px;
 
-            > img {
-                width: 50px;
-                height: 50px;
-            }
+        > img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      .username {
+        margin-top: 7px;
+
+        h1 {
+          font-size: 22px;
         }
 
-        .username {
-            margin-top: 7px;
-
-            h1 {
-                font-size: 22px;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
+        h2 {
+          font-size: 18px;
         }
-     }
+      }
     }
+  }
 }

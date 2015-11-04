@@ -7,7 +7,7 @@
                 </div>
                 <div class="tags row">
                     {{#each tags}}
-                        {{>tag}}
+                    {{>tag}}
                     {{/each}}
                 </div>
             </div>
@@ -19,7 +19,9 @@
                     <div class="img" style="background-image: url('{{getAvatar profile.image}}')"></div>
                 </div>
                 <div class="username">
-                    <h1><span class="name">{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</span></h1>
+                    <h1><span class="name">{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</span>
+                    </h1>
+
                     <h2>{{username}}</h2>
                 </div>
             {{/with}}
