@@ -1,13 +1,9 @@
 <template name="tag">
     <div class="tag">
-        {{#with fetchTag this ../_id}}
-        {{#if imgs}}
-            <a href="{{link}}" data-tag="{{tag}}" target="_blank"><img src="{{imgs.low_resolution.url}}" alt="#{{tag}}"/></a>
-        {{else}}
-            <a href="#"><span class="{{tagError error}}"></span></a>
-        {{/if}}
-        {{else}}
+        <!--Display the tag images here. You can also use this template to display 'error' tags.
+        Wonder how these 'error' tags look like? Try typing a forbidden tag or a tag that don't exist on therealtweeteor.meteor.com.-->
+        <!-- This snippet displays a loading tag - it might be useful!
             <a class="loading" href="#"><span class="tag-undefined"></span></a>
-        {{/with}}
+        -->
     </div>
 </template>

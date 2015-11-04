@@ -51,7 +51,7 @@ Tweeteor is supposed to have a header on each page, but it doesn't have this jus
 
 To use the layout in your router, open `router.js` and create a `Router.configure` function that takes in an object. Add a `layoutTemplate` property on this object with a string that matches the name of the layout template in `layout.html`. 
 
-To wrap it all up you need to tell the router where to render the template. Using spacebar's [inclusion-tag](https://github.com/meteor/meteor/blob/devel/packages/spacebars/README.md#inclusion-and-block-arguments) with `yeild` as name does the trick.
+To wrap it all up you need to tell the router where to render the template. Using spacebar's [inclusion-tag](https://github.com/meteor/meteor/blob/devel/packages/spacebars/README.md#inclusion-and-block-arguments) with `yield` as name does the trick.
 
 #### 404 - header not found
 Iron router can of course show a custom 404 page for unknown routes. All you need to do is to use your `Router.configure` function to tell it where to find the `notFoundTemplate`. You can also show a custom `dataNotFound` page through the use of a `plugin`. Make your app a little more friendly by adding both of these.

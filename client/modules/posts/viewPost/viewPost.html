@@ -3,28 +3,31 @@
         <div class="bubble">
             <div class="content">
                 <div class="text row">
-                    {{{fetchText}}}
+                    <!--Display the tweet's raw text-->
                 </div>
                 <div class="tags row">
-                    {{#each tags}}
-                    {{>tag}}
-                    {{/each}}
+                    <!--Iterate over and display tags-->
                 </div>
             </div>
         </div>
 
         <div class="meta row">
-            {{#with getUser userId}}
+        <!-- This div holds all info about the user that owns the tweet-->
+                
+                <!-- This snippet can be used to display a profile picture. Given that you use a helper inside {{}} int the style attribute
                 <div class="avatar">
-                    <div class="img" style="background-image: url('{{getAvatar profile.image}}')"></div>
+                    <div class="img" style="background-image: url('{{}}')"></div>
                 </div>
+                -->
                 <div class="username">
-                    <h1><span class="name">{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</span>
+                    <h1>
+                        <span class="name">
+                            <!--Display the owner of the tweet's name here - maybe as a link to the profile?-->   
+                        </span>
                     </h1>
 
-                    <h2>{{username}}</h2>
+                    <h2><!--Username goes here--></h2>
                 </div>
-            {{/with}}
         </div>
     </div>
 </template>

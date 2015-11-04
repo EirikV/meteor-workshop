@@ -5,29 +5,16 @@
                 <div class="img" style="background-image: url('{{getAvatar user.profile.image}}')"></div>
             </div>
             <div class="username">
-                <h1>{{getName user.profile user.username}}'s profile</h1>
+                <h1><!--Display the owner of the profile's name--></h1>
             </div>
         </div>
         <div class="row">
             <form class="profileForm">
-                <div class="{{displayClass editPermissions}} fields">
-                    {{>profileFormField type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
-                    {{>profileFormField type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
-                    {{>profileFormField type="text" fieldName="adress" value=user.profile.adress editPermissions=editPermissions}}
-                    {{>profileFormField type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
-                </div>
-                {{#if editPermissions}}
-                <button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
-                {{/if}}
+               <!--Add a profile form here-->
             </form>
-            {{#if editPermissions}}
             <article class="uploadProfilePic">
-					<span class="">
-						<label for="profilepic">Upload a new profile image:</label>
-						<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file"/>
-					</span>
+					<!--Add image upload here-->
             </article>
-            {{/if}}
         </div>
     </section>
 </template>

@@ -1,13 +1,5 @@
 <template name="actionBar">
     <div id="actions" class="row">
-        {{#unless isHome}}
-            <span class="glyphicon glyphicon-home"></span>
-        {{/unless}}
-
-        {{#if currentUser}}
-            <span class="glyphicon glyphicon-log-out"></span>
-        {{else}}
-            {{>loginButtons}}
-        {{/if}}
+    <!--Display loginButtons and sign out link here--> 
     </div>
 </template>

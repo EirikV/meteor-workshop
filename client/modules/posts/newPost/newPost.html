@@ -1,12 +1,15 @@
 <template name="newPost">
     <div class="content">
-        {{#if currentUser}}
+    <!--TODO: replace 'false' with currentUser after adding accounts packages -->
+        {{#if false}}
         <form>
             <div class="row">
                 <textarea class="tweet" name="post" placeholder="What do you want to tweeteor about?" maxlength="140"></textarea>
             </div>
             <div class="row">
-                <span class="pull-left">{{getCharactersText}}</span>
+                <span class="pull-left">
+                    <!--Display how many characters the user has left until the limit of 140 is reached-->
+                </span>
                 <button class="pull-right btn btn-success" type="submit">Tweeteor it...</button>
             </div>
         </form>
