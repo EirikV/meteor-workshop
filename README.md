@@ -2,7 +2,7 @@
 
 Welcome to this Meteor workshop made for BEKK. In this part you are going to build a chat application starting with nothing at all (except for this very helpful readme). As you move through the tasks, you will learn about Meteor's basic concepts, and when you are done, you will be ready for more advanced Meteor tasks.
 
-So what is this chat application going to look like? Well, head over to a fully operational death star, ummm I mean chat application, over at [meteor.com](http://bekkchat.meteor.com) and check it out. Feel free chat with the other participants throughout the day.
+So what is this chat application going to look like? Well, head over to a fully operational death star... ummm... I mean chat application, at [bekk-chat](http://bekkchat.meteor.com) and check it out. Feel free chat with the other participants and ask questions throughout the day.
 
 ## Some resources to help you along
 * **[The full Meteor documentation](http://docs.meteor.com/#/full/quickstart)**
@@ -10,7 +10,6 @@ So what is this chat application going to look like? Well, head over to a fully 
 * **[Meteor's Todo tutorial using Blaze](https://www.meteor.com/tutorials/blaze/creating-an-app)**
 
 ## Let's get to work!
-If you have any questions at this point, now is a great time to ask them - we will be happy to clarify any obscurities.
 
 ### 1. First things first
 Open your favorite command line and make sure that your current working directory is where you want to create your app. Then type: `meteor create chat-app`.
@@ -28,15 +27,15 @@ Time to dig into some code. We're gonna start off by looking at displaying some 
 
 *__Tip:__ you can create a helper function for your message in `chat-app.js` to format the time property of a message.*
 
-*__Tip:__ template helper have to run on the client only, so wrap your client code in an if-statement: `if(Meteor.isClient)`*
+*__Tip:__ template helper have to run on the client only, so wrap your client code in an if-statement: `if(Meteor.isClient)`.*
 
-Great, now you have a template to display a single message. But in a chat application, you of course need to display several messages. So let's create another template that will hold all messages as well as the textarea for adding new messages - a `MessageContainer` if you will (more on adding a message later).
+Great, now you have a template to display a single message. In a chat application you might, of course, need to display several messages. So let's create another template that will hold all messages as well as the textarea for adding new messages - a `MessageContainer` if you will (more on adding a message later).
 
 *__Tip:__ grab the markup from the base structure in the [style guide](chat-app/client/css/).*
 
 This template will need to iterate over some messages, so you will need to use a block helper. Also, the messages will need to come from somewhere. For now, create a template helper function in `chat-app.js` for your `MessageContainer` that just returns an array with some dummy messages. 
 
-*__Tip:__ remember to put your client code in an if: `if(Meteor.isClient)`*
+*__Tip:__ remember to put your client code in an `if(Meteor.isClient)`.*
 
 ### 3. Do something a litte more useful
 Allright! You now have a basis for displaying some messages, but you are just returning a static array - that's not very useful, now is it? Time to store messages in the database.
@@ -45,11 +44,11 @@ Open `chat-app.js` and create a new `Mongo.Collection` for your messages and sto
 
 Now replace the static array in your template helper to return all messages instead (using a find query on the *Messages* collection).
 
-*__Tip:__ you can verify that things are working by manually adding messages via the console in your browser. Just type `Messages.insert({/*properties goes here*/)` (assuming you named your variable `Messages`. Since you haven't added the concept of users yet, just use some random value for that property.*
+*__Tip:__ You can verify that things are working by manually adding messages via the console in your browser. Just type `Messages.insert({<properties goes here>})` (assuming you named your variable `Messages`. Since you haven't added the concept of users yet, just use some random value for that property.*
 
 ### 4. Making adding messages a little simpler
 
-Open up `chat-app.html` and add a textarea to your MessageContainer template. Then open `chat-app.js` and register an event handler on your template. Write code to insert a new message into the `Messages` collection here. You can just hard code the `author` property for now.
+Open up `chat-app.html` and add a textarea to your `MessageContainer` template. Then open `chat-app.js` and register an event handler on your template. Write code to insert a new message into the `Messages` collection here. You can just hard code the `author` property for now.
 
 *__Tip:__ If you use the `keydown` event you can insert a message whenever the return key is hit.*
 
@@ -57,7 +56,7 @@ Open up `chat-app.html` and add a textarea to your MessageContainer template. Th
 
 Open up a new command line window, change directory to your application folder and type `meteor remove autopublish`. 
 
-Now things should be broken. But don't worry! A few lines of codes should fix it all up. Add code to publish all *Messages* inside your server code in chat-app.js (if you don't have an `if(Meteor.isServer)` block, now is the time to create one). Then, in your client code, add code to subscribe to your newly published collection.
+Now things should be broken. But don't worry! A few lines of codes should fix it all up. Add code to publish all messages as server-side code in chat-app.js (if you don't have an `if(Meteor.isServer)` block, now is the time to create one). Then, in your client code, add code to subscribe to your newly published collection.
 
 Verify that everything is working again.
 
@@ -67,21 +66,21 @@ Now that you got your app working again, it is time to break it once more. In th
 
 Now try writing a message. Didn't work? Check the console in your browser - it should say 'access denied'.
 
-To fix this, you need to create a *Meteor.method* for adding messages. So open up *chat-app.js* and add one. Then, replace the code in your textarea event handler with new code that calls this new method using `Meteor.call`.
+To fix this, you need to create a `Meteor.method` for adding messages. So open up `chat-app.js` and add one. Then, replace the code in your textarea event handler with new code that calls this new method using `Meteor.call`.
 
-*__Tip:__ You can have your method situated on the server only, but if you put it in the code that runs on both the server and the client, you will enable one of Meteor's coolest features: [latency compensation](http://docs.meteor.com/#/full/sevenprinciples)*
+*__Tip:__ You can have your method situated on the server only, but if you put it in the code that runs on both the server and the client, you will enable one of Meteor's coolest features: [latency compensation](http://docs.meteor.com/#/full/sevenprinciples)*.
 
 ### 7. Introducing users
 
 Let's make the application a little more full of life. Add two new templates for users by the same pattern as you did for messages (one for a single user, and one 'Container' that iterates over many users). To verify that things work, you can create a template helper in your UserContainer that returns an array of objects that has the properties of a user. A user should have a name, either divided into a firstname and a lastname, or just a simple name that holds the full name.
 
-Open *chat-app.js* and create a new *Mongo.Collection* for users. Remember to publish and subscribe it! Then make sure that there is a template helper for the UserContainer that returns all users from the database.
+Open `chat-app.js` and create a new `Mongo.Collection` for users. Remember to publish and subscribe it! Then make sure that there is a template helper for the UserContainer that returns all users from the database.
 
-But wait! How can you check that things work now that you have removed the insecure package? Well, Meteor has its own database shell. Open a command line window and type `meteor mongo`. Now you can write normal MongoDb queries. To add users, simply type `db.users.insert({/*properties goes here*/})` (assuming you named the collection 'users'). While you're poking around the database, you might want to clean up old testdata. To delete all members of a collection, for instance the *messages* collection, simply type `db.messages.drop()`.
+But wait! How can you check that things work now that you have removed the insecure package? Well, Meteor has its own database shell. Open a command line window and type `meteor mongo`. Now you can write normal MongoDb queries. To add users, simply type `db.users.insert({/*properties goes here*/})` (assuming you named the collection 'users'). While you're poking around the database, you might want to clean up old testdata. To delete all members of a collection, for instance the `messages` collection, simply type `db.messages.drop()`.
 
 ### 8. Creating users
 
-We are keeping it simple in this tutorial, so we will take the liberty of choosing names for your users. To help you out in choosing a random name, here is some code you can paste into *chat-app.js*:
+We are keeping it simple in this tutorial, so we will take the liberty of choosing names for your users. To help you out in choosing a random name, here is some code you can paste into `chat-app.js`:
 
 ```JavaScript
 var createUser = function() { 
