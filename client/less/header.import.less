@@ -1,56 +1,55 @@
 header {
-    background-color: @off-black;
-    color: @off-white;
+  background-color: @off-black;
+  color: @off-white;
 
-    .post {
-        &:nth-child(2n+0) {
-            >.meta {
-                justify-content: inherit;
+  .post {
+    &:nth-child(2n+0) {
+      > .meta {
+        justify-content: inherit;
 
-                >.avatar {
-                    order: inherit;
-                    margin-left: inherit;
+        > .avatar {
+          order: inherit;
+          margin-left: inherit;
 
-                    > .img {
-                        width: 80px;
-                        height: 80px;
-                        border-radius: 50%;
-                        background-size: 80px;
-                        background-position: center;
-                    }
-                }
-                >.username {
-                    margin-left: 5px;
-                    text-align: inherit;
-                }
-            }
+          > .img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-size: 80px;
+            background-position: center;
+          }
         }
-
-        .tweet {
-            width: 100%;
-            min-width: 100%;
-            max-width: 100%;
-            background-color: @off-white;
-            border-radius: 5px;
-            border: 1px solid @light-gray;
-            min-height: 100px;
-            font-size: 18px;
+        > .username {
+          margin-left: 5px;
+          text-align: inherit;
         }
-
+      }
     }
 
-    .meta {
-        h1 {
-            a {
-                color: @off-white;
-
-                &:hover {
-                    color: @gray;
-                    text-decoration: none;
-                }
-            }
-        }
+    .tweet {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      background-color: @off-white;
+      border-radius: 5px;
+      border: 1px solid @light-gray;
+      min-height: 100px;
+      font-size: 18px;
     }
 
+  }
+
+  .meta {
+    h1 {
+      a {
+        color: @off-white;
+
+        &:hover {
+          color: @gray;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 
 }

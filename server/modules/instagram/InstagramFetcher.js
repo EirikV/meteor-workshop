@@ -1,35 +1,35 @@
 // Borrowed from Kristoffer Klintberg
 // https://github.com/krstffr/meteor-instagram-fetcher/
 
-var InstagramFetcherHandler = function() {
+var InstagramFetcherHandler = function () {
 
     var that = this;
 
     // Instead of using console.log() directly, here we have a
     // "global" option to turn loggin off
     that.hideLog = false;
-    that.log = function ( msg ) {
+    that.log = function (msg) {
         if (that.hideLog)
             return true;
-        return console.log( msg );
+        return console.log(msg);
     };
 
     // All handling of fetching of remote images
     that.fetchImages = {};
 
     // The defaulty way of getting images, called by most other methods
-    that.fetchImages.defaultCb = function ( url, cb, passedOptions ) {
+    that.fetchImages.defaultCb = function (url, cb, passedOptions) {
 
-        check( cb, Function );
+        check(cb, Function);
 
         // Make sure user has provided AUTH
-        if(!that.checkAuth()) {
-          cb([], null, 'Not authenticated');
-          return;
+        if (!that.checkAuth()) {
+            cb([], null, 'Not authenticated');
+            return;
         }
 
         var options = {
-            params: { client_id: Meteor.settings.InstagramAPI.CLIENT_ID }
+            params: {client_id: Meteor.settings.InstagramAPI.CLIENT_ID}
         };
 
         if (passedOptions.minTagId)
@@ -44,41 +44,41 @@ var InstagramFetcherHandler = function() {
         Meteor.http.call(
             'GET',
             url,
-            options, function(err, res) {
+            options, function (err, res) {
 
                 if (err) {
-                    cb( images, pagination, err);
+                    cb(images, pagination, err);
                     return;
                 }
 
                 // Get the pagination
                 var pagination = res.data.pagination;
-                check( pagination, Object );
+                check(pagination, Object);
 
                 // The images are stored in the data.data object
                 // should be an array…
                 var images = res.data.data;
-                check( images, Array );
+                check(images, Array);
 
                 that.log('--> --> --> returning: ' + images.length + ' images.');
 
                 // …pass the array to the callback!
-                cb( images, pagination );
+                cb(images, pagination);
             });
 
     };
 
     // Get image by tag (hashtag)
-    that.fetchImages.fromTag = function ( options, cb ) {
+    that.fetchImages.fromTag = function (options, cb) {
 
         // Make sure we got a tagName!
-        check( options.tagName, String );
+        check(options.tagName, String);
 
-        var url = 'https://api.instagram.com/v1/tags/'+options.tagName+'/media/recent?callback=?';
+        var url = 'https://api.instagram.com/v1/tags/' + options.tagName + '/media/recent?callback=?';
 
         that.log('--> --> fetching images with tag: ' + options.tagName + '…');
 
-        return that.fetchImages.defaultCb( url, cb, options );
+        return that.fetchImages.defaultCb(url, cb, options);
 
     };
 

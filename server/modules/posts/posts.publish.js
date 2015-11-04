@@ -1,9 +1,9 @@
-Meteor.publish('posts', function(username) {
-	var posts = Posts.find();
+Meteor.publish('posts', function () {
+    var posts = Posts.find();
 
-	return posts;
+    return posts;
 });
 
-Meteor.publish('tags', function() {
-	return Tags.find();
+Meteor.publish('tags', function () {
+    return Tags.find();
 });
