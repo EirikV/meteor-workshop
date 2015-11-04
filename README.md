@@ -42,7 +42,7 @@ Allright! You now have a basis for displaying some messages, but you are just re
 
 Open `chat-app.js` and create a new `Mongo.Collection` for your messages and store it in a global variable. Remember that this object has to be available on both the server AND the client, so don't put it in any `if(Meteor.isClient)` or `if(Meteor.isServer)` blocks.
 
-Now replace the static array in your template helper to return all messages instead (using a find query on the *Messages* collection).
+Now replace the static array in your template helper to return all messages instead (using a find query on the `Messages` -collection).
 
 *__Tip:__ You can verify that things are working by manually adding messages via the console in your browser. Just type `Messages.insert({<properties goes here>})` (assuming you named your variable `Messages`. Since you haven't added the concept of users yet, just use some random value for that property.*
 
@@ -76,7 +76,7 @@ Let's make the application a little more full of life. Add two new templates for
 
 Open `chat-app.js` and create a new `Mongo.Collection` for users. Remember to publish and subscribe it! Then make sure that there is a template helper for the UserContainer that returns all users from the database.
 
-But wait! How can you check that things work now that you have removed the insecure package? Well, Meteor has its own database shell. Open a command line window and type `meteor mongo`. Now you can write normal MongoDb queries. To add users, simply type `db.users.insert({/*properties goes here*/})` (assuming you named the collection 'users'). While you're poking around the database, you might want to clean up old testdata. To delete all members of a collection, for instance the `messages` collection, simply type `db.messages.drop()`.
+But wait! How can you check that things work now that you have removed the insecure package? Well, Meteor has its own database shell. Open a command line window and type `meteor mongo`. Now you can write normal MongoDb queries. To add users, simply type `db.users.insert({<properties goes here>})` (assuming you named the collection 'users'). While you're poking around the database, you might want to clean up old testdata. To delete all members of a collection, for instance the `messages` collection, simply type `db.messages.drop()`.
 
 ### 8. Creating users
 
@@ -130,15 +130,15 @@ Once again open `chat-app.js`. If you look at your `Method` for creating a user,
 
 *__Tip:__ When calling insert on a collection, the return value is the `_id` field of the newly created document. Put this into a findOne call to retrieve the newly created document from the database.*
 
-*__Tip:__ Every Meteor.call function can take a callback as its second parameter. This callback has two parameters: error and result, where result is whatever the method returned.*
+*__Tip:__ Every `Meteor.call` function can take a callback as its second parameter. This callback has two parameters: error and result, where result is whatever the method returned.*
 
-Once you have the newly created user available on the client, simply store it in a *Session* variable (with a suitable name of course). Then use this session variable to set the author property in your `Method` for adding a new message.
+Once you have the newly created user available on the client, simply store it in a `Session` variable (with a suitable name of course). Then use this session variable to set the author property in your `Method` for adding a new message.
 
 ### 10. Highlighting yourself and your messages
 
 Using the `Session` variable with the current user, you can also highlight what messages are yours and which user in the list of users is you.
 
-In `chat-app.js` create a template helper for your `Message` template that returns either `'-current` or `''` based if the message's name matches or does not match the current user's name respectively. Now you can use this helper in the `Message` template's markup to add the `current` class for your messages.
+In `chat-app.js` create a template helper for your `Message` template that returns either `'-current` or `''` based if the message's name matches or does not match the current user's name respectively. Now you can use this helper in the `Message` template's markup to add the `-current` class for your messages.
 
 Create a similar helper for your `User` template and use it to highlight the current user in the list of users.
 
@@ -146,7 +146,7 @@ Create a similar helper for your `User` template and use it to highlight the cur
 Congratulations! You have now completed an introduction to Meteor. So what's next? If you feel done with the chat application, move on to [Tweeteor](https://github.com/EirikV/meteor-workshop/tree/tweeteor-solution) - a brand new social media site. Otherwise, here are some extra tasks for the chat app if you want to polish it.
 
 1. The current user feature of the application hands you a new user each time you refresh the page. This isn't all that user friendly, so go ahead and fix it by introducing the use of localstorage to store the id of the current user. Then use this in your `Meteor.startup` function to ensure that you only get assigned a user once per browser.
-2. As of now a lot of the users in the list are probalby inactive. Make functionality that tracks when users were last active and use this to mark inactive users in the same way as shown in the [style guide](chat-app/client/css/). Also, sort the list of users so that the active users are at the top.
+2. As of now a lot of the users in the list are probably inactive. Make functionality that tracks when users were last active and use this to mark inactive users in the same way as shown in the [style guide](chat-app/client/css/). Also, sort the list of users so that the active users are at the top.
 3. Users of the chat app all probably have the same feature request: being able to choose their own username. Give the people what they want!
 
 
