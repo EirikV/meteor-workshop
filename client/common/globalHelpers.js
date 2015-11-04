@@ -14,6 +14,10 @@ var updateProfile = function(profileInfo) {
 	});
 }
 
+Template.registerHelper('isHome', function() {
+	return Router.current().location.get().path === '/';
+})
+
 Template.registerHelper('getName', function(profile, username) {
 	if(Session.get('nameChange') && Session.get('nameChange').trim() !== '') {
     		return Session.get('nameChange');
