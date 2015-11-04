@@ -16,32 +16,38 @@ var updateProfile = function(profileInfo) {
 
 Template.registerHelper('getName', function(profile, username) {
 	if(Session.get('nameChange') && Session.get('nameChange').trim() !== '') {
-    		return Session.get('nameChange');
+		return Session.get('nameChange');
 	}
 
 	if(profile && (profile.firstname || profile.lastname)) {
 	    return profile.firstname + ' ' + profile.lastname;
 	}
-	
+
 	var firstname = [
-	    'Captain',
-	    'Jane',
-	    'John',
-	    'Ola',
-	    'Miss.',
-	    'Mr.',
-	    'Doctor',
-	    'Mrs.',
-	    'Sir.'
+		'Anonymous',
+		'Random',
+		'Unidentified',
+		'Nameless',
+		'Unnamed',
+		'Unknown',
+		'Incognito'
 	];
 
 	var lastname = [
-	    'NoName',
-	    'Nameless',
-	    'JohnDoe',
-	    'Nordmann',
-	    'HazNoName',
-	    'QuestionMark'
+		'Sheep',
+		'Badger',
+		'Elephant',
+		'Tiger',
+		'Dog',
+		'Wolf',
+		'Cat',
+		'Turtle',
+		'Shark',
+		'Dolphin',
+		'Cow',
+		'Hamster',
+		'Giraffe',
+		'Lion'
 	];
 
 	var profileInfo = {
@@ -51,5 +57,5 @@ Template.registerHelper('getName', function(profile, username) {
 
 	updateProfile(profileInfo)
 	
-	return;
+	return '';
 });
