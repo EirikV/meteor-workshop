@@ -24,7 +24,7 @@ Template.editProfile.events({
             Session.set('nameChange', name);
         }
     },
-    'change .upload-profile-pic-input': function (event) {
+    'change #profile-upload': function (event) {
         FS.Utility.eachFile(event, function (file) {
             Images.insert(file, function (err, fileObj) {
                 if (err) {
