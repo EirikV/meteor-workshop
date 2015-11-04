@@ -12,11 +12,6 @@ Template.viewPost.helpers({
     },
     fetchText: function () {
         var activeTextValue = activeText.get();
-
-        if (!post) {
-            return this.text;
-        }
-
         return activeTextValue && this._id === post._id ? activeTextValue : this.text;
     }
 
@@ -38,10 +33,14 @@ Template.viewPost.events({
         if (!post) {
             return;
         }
-        activeText.set(post.text.replace(new RegExp('#' + this.tag, "g"), '<span class="active-tag">#' + this.tag + '</span>'));
+        activeText.set(post.text.replace(new RegExp('#' + this.tag, 'g'), '<span class="active-tag">#' + this.tag + '</span>'));
     },
 
-    'mouseleave .tag a': function (e) {
+    'mouseleave .tag a': function () {
+        activeText.set(post.text);
+    },
+
+    'click .tag a': function () {
         activeText.set(post.text);
     }
 });

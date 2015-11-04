@@ -5,23 +5,23 @@
 
             <div class="post row">
                 {{#if isHome}}
-                    <div class="bubble">
-                        {{> newPost}}
-                    </div>
+                <div class="bubble">
+                    {{> newPost}}
+                </div>
                 {{/if}}
 
                 <div class="meta row">
                     {{#if currentUser}}
-                        {{#with currentUser}}
-                        <div class="avatar">
-                            <div class="img" style="background-image: url('{{getAvatar profile.image}}')"></div>
-                        </div>
-                        <div class="username">
-                            <h1>{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</h1>
+                    {{#with currentUser}}
+                    <div class="avatar">
+                        <img src="{{getAvatar profile.image}}" alt="profile picture"/>
+                    </div>
+                    <div class="username">
+                        <h1>{{#linkTo route="edit.profile"}}{{getName profile username}}{{/linkTo}}</h1>
 
-                            <h2>{{username}}</h2>
-                        </div>
-                        {{/with}}
+                        <h2>{{username}}</h2>
+                    </div>
+                    {{/with}}
                     {{/if}}
                 </div>
             </div>
