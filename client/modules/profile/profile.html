@@ -1,15 +1,16 @@
 <template name="editProfile">
     <section class="container profile">
-        <div class="row">
+        <div class="meta row">
             <div class="avatar">
                 <div class="img" style="background-image: url('{{getAvatar user.profile.image}}')"></div>
             </div>
             <div class="username">
-                <h1>{{getName user.profile user.username}}'s profile</h1>
+                <h1>{{getName user.profile}}</h1>
+                <h2>Profile</h2>
             </div>
         </div>
-        <div class="row">
-            <form class="profileForm">
+        <div class="form row">
+            <form class="profile-form">
                 <div class="{{displayClass editPermissions}} fields">
                     {{>profileFormField type="text" fieldName="firstname" value=user.profile.firstname editPermissions=editPermissions}}
                     {{>profileFormField type="text" fieldName="lastname" value=user.profile.lastname editPermissions=editPermissions}}
@@ -17,16 +18,16 @@
                     {{>profileFormField type="text" fieldName="phone" value=user.profile.phone editPermissions=editPermissions}}
                 </div>
                 {{#if editPermissions}}
-                <button class="profileFormSubmit btn btn-success" type="submit">Submit</button>
+                <button class="btn btn-success" type="submit">Submit</button>
                 {{/if}}
             </form>
             {{#if editPermissions}}
-            <article class="uploadProfilePic">
-					<span class="">
-						<label for="profilepic">Upload a new profile image:</label>
-						<input type="file" name="profilepic" class="profilePicUploadInput btn btn-default btn-file"/>
-					</span>
-            </article>
+            <div class="upload-profile-pic">
+                <span class="">
+                    <label for="profile-upload">Upload a new profile image:</label>
+                    <input id="profile-upload" type="file" name="profile-upload" class="btn btn-default btn-file"/>
+                </span>
+            </div>
             {{/if}}
         </div>
     </section>

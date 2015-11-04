@@ -1,10 +1,12 @@
 Template.editProfile.events({
-    'submit .profileForm': function (e) {
+    'submit .profile-form': function (e) {
+
         e.preventDefault();
-        var data = $('form.profileForm').serializeArray();
+        var data = $('form.profile-form').serializeArray();
+
         var profileInfo = _.object(_.pluck(data, 'name'), _.pluck(data, 'value'));
 
-        Meteor.call('updateUserProfile', profileInfo, function (error, result) {
+        Meteor.call('updateUserProfile', profileInfo, function (error) {
             delete Session.keys['nameChange'];
 
             if (error) {
@@ -22,7 +24,7 @@ Template.editProfile.events({
             Session.set('nameChange', name);
         }
     },
-    'change .profilePicUploadInput': function (event, template) {
+    'change .upload-profile-pic-input': function (event) {
         FS.Utility.eachFile(event, function (file) {
             Images.insert(file, function (err, fileObj) {
                 if (err) {

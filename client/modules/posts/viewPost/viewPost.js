@@ -4,7 +4,9 @@ var activeText = new ReactiveVar('');
 Template.viewPost.helpers({
     getUser: function (userId) {
         var user = Meteor.users.findOne(userId);
-        if (!user) return;
+        if (!user) {
+            return;
+        }
         return {
             username: user.username,
             profile: user.profile
@@ -12,24 +14,24 @@ Template.viewPost.helpers({
     },
     fetchText: function () {
         var activeTextValue = activeText.get();
-        return activeTextValue && this._id === post._id ? activeTextValue : this.text;
+        return activeTextValue && post && this._id === post._id ? activeTextValue : this.text;
     }
 
 });
 
 Template.viewPost.events({
-    'mouseenter .post': function (e) {
+    'mouseenter .post': function () {
         if (!this.text) {
             return;
         }
         post = this;
     },
 
-    'mouseleave .post': function (e) {
+    'mouseleave .post': function () {
         post = undefined;
     },
 
-    'mouseenter .tag a': function (e) {
+    'mouseenter .tag a': function () {
         if (!post) {
             return;
         }
@@ -37,6 +39,10 @@ Template.viewPost.events({
     },
 
     'mouseleave .tag a': function () {
+        if(!post) {
+            return;
+        }
+
         activeText.set(post.text);
     },
 
