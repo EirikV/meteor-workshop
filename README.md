@@ -128,7 +128,7 @@ Now that you have some users, it is time to set the current user as author whene
 
 Once again open `chat-app.js`. If you look at your `Method` for creating a user, this probably doesn't return anything. To be able to set the current user in a `Session` variable, you must retrieve the new user from the database after inserting, and then return this to the client.
 
-*__Tip:__ When calling insert on a collection, the return value is the `_id` field of the newly created document. Put this into a findOne call to retrieve the newly created document from the database.*
+*__Tip:__ When calling insert on a collection, the return value is the `_id` field of the newly created document. Put this into a `findOne` call to retrieve the newly created document from the database.*
 
 *__Tip:__ Every `Meteor.call` function can take a callback as its second parameter. This callback has two parameters: error and result, where result is whatever the method returned.*
 
@@ -138,7 +138,7 @@ Once you have the newly created user available on the client, simply store it in
 
 Using the `Session` variable with the current user, you can also highlight what messages are yours and which user in the list of users is you.
 
-In `chat-app.js` create a template helper for your `Message` template that returns either `'-current` or `''` based if the message's name matches or does not match the current user's name respectively. Now you can use this helper in the `Message` template's markup to add the `-current` class for your messages.
+In `chat-app.js` create a template helper for your `Message` template that returns either `-current` or `''` based if the message's name matches or does not match the current user's name respectively. Now you can use this helper in the `Message` template's markup to add the `-current` class for your messages.
 
 Create a similar helper for your `User` template and use it to highlight the current user in the list of users.
 
