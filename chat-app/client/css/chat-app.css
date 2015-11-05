@@ -1,5 +1,7 @@
 body {
     font-family: Arial, sans-serif;
+    background: #262626;
+    color: #c6c8ca;
 }
 
 h1, h2, h3, h4 {
@@ -19,10 +21,18 @@ h1, h2, h3, h4 {
 }
 
 .app-container > .header {
+    border-bottom: 1px solid #515151;
     text-align: center;
     height: 50px;
-    color: #f1f1f1;
-    background: #464646;
+}
+
+.app-container > .header > .logo {
+    background-image: url('http://bekk.no/Content/Images/sprite.png');
+    background-position: 0 -274px;
+    width: 73px;
+    height: 17px;
+    margin: 16px auto 0 auto;
+    display: block;
 }
 
 .app-container > .content-container {
@@ -38,9 +48,9 @@ h1, h2, h3, h4 {
 }
 
 .users {
+    border-left: 1px solid #515151;
     flex: 1;
     padding: 10px;
-    background: #ccc;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -49,36 +59,32 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
-    background: #f1f1f1;
-    color: #464646;
-    height: 50px;
+    height: 30px;
 }
 
 .users > .user.-current {
-    background: #464646;
-    color: #f1f1f1;
+    background: #515151;
 }
 
 .users > .user > .status {
     flex: 1;
-    height: 50px;
-    width: 50px;
-    max-width: 50px;
+    height: 30px;
+    width: 30px;
+    max-width: 30px;
     margin-right: 10px;
-    border-right: 1px solid #f1f1f1;
 }
 
 .users > .user > .status.-inactive {
-    background: #db4e4d;
+    background: #df565b;
 }
 
 .users > .user > .status.-active {
-    background: #008000;
+    background: #36bdb2;
 }
 
 .users > .user > .name {
     flex: 3;
-    padding-top: 15px;
+    padding-top: 6px;
     margin-right: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -87,91 +93,116 @@ h1, h2, h3, h4 {
 }
 
 .message-container > .messages {
-    background: #fff;
+    flex: 3;
     overflow-y: auto;
     overflow-x: hidden;
     max-height: calc(100% - 100px);
     height: calc(100% - 100px);
-    padding: 20px 10px 0 10px;
-    flex: 3;
-    display: flex;
-    flex-direction: column;
+    padding: 30px 30px 0 30px;
 }
 
 .messages > .message {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.messages > .message.-current {
+    direction: rtl;
 }
 
 .messages > .message > .content {
-    color: #464646;
+    direction: ltr;
+    color: #f1f1f1;
+    background-color: #515151;
+    max-width: 800px;
+    min-width: 400px;
+    text-align: left;
+    display: inline-block;
     padding: 10px;
-    background: #ccc;
     border-radius: 5px;
 }
 
-.messages > .message > .content > .author,
-.messages > .message > .content > .time {
-    color: #f1f1f1;
-    font-size: 0.8em;
+.messages > .message > .content > .text {
+    font-family: Georgia, serif;
+    margin: 20px 0 20px 0;
 }
 
 .messages > .message > .content > .author {
+    font-size: 0.8em;
+    border-top: 2px solid #df565b;
+    padding-top: 10px;
+    font-weight: bold;
     text-align: left;
     text-transform: uppercase;
-    margin-bottom: 5px;
 }
 
 .messages > .message > .content > .time {
+    font-size: 0.8em;
     text-align: right;
-    margin-top: 5px;
 }
 
-.messages > .message.-current > .content > .author,
+.messages > .message.-current > .content {
+    color: #515151;
+    background: #f1f1f1;
+}
+
+.messages > .message.-current:after {
+    border-top-color: #f1f1f1;
+    margin: 0 10px 0 0;
+}
+
+.messages > .message.-current > .content > .author {
+    text-align: right;
+}
+
 .messages > .message.-current > .content > .time {
-    color: #464646;
+    text-align: left;
 }
 
 .messages > .message:after {
-    float: left;
+    display: block;
     content: "";
     width: 0;
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 20px solid #ccc;
-    margin: 0 0 0 20px;
-}
-
-.messages > .message.-current > .content {
-    color: #f1f1f1;
-    background: #db4e4d;
-}
-
-.messages > .message.-current:after {
-    float: right;
-    border-top: 20px solid #db4e4d;
-    margin: 0 20px 0 0;
+    border-top: 20px solid #515151;
+    margin: 0 0 0 10px;
 }
 
 .post {
+    border-top: 1px solid #515151;
     padding: 10px;
     height: 100px;
-    background: #f1f1f1;
 }
 
 .post > textarea[name="post"] {
     resize: none;
     padding: 10px;
-    color: #464646;
+    color: #c6c8ca;
     height: 80px;
     width: calc(100% - 20px);
-    background-color: #fff;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border: none;
+    background-color: #515151;
     font-size: 14px;
 }
 
+.post > textarea[name="post"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
 @media all and (max-width: 700px) {
+
+    .message-container > .messages {
+        padding: 20px 10px 0 10px;
+    }
+
+    .messages > .message > .content {
+        max-width: 600px;
+        min-width: 250px;
+    }
+
     .users {
         display: none;
     }

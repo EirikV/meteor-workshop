@@ -5,30 +5,13 @@ You are, of course, free to style the application the way you choose.
 
 You can grab the CSS [here](chat-app.css).
 
-## Typogrpahy
-
-Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
-
-```html
-<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
-```
-
-## Colors
-
-* Black: #464646
-* White: #fff
-* Off-white: #f1f1f1
-* Gray: #ccc
-* Highlights/Active (red-ish): #db4e4d
-* Green: #008000
-
 ## Base structure
 
 ![Base structure](example-images/base-structure.png)
 
 ```html
 <div class="app-container">
-    <header class="header"><!-- Your title can go here --></header>
+    <header class="header"><!-- Your title or logo can go here --></header>
 
     <section class="content-container">
 
@@ -52,6 +35,14 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 </div>
 ```
 
+### Logo
+
+![Logo](example-images/logo.png)
+
+```html
+<a href="#" class="logo"></a>
+```
+
 ## Post - Input
 
 ![Post-Input](example-images/textbox.png)
@@ -71,7 +62,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
     <div class="content">
         <div class="author">Barack Obama</div>
         <div class="text">This app is cool!</div>
-        <div class="time">10.10.2014</div>
+        <div class="time">20/1/2009</div>
     </div>
 </div>
 ```
@@ -84,8 +75,8 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 <div class="message -current">
     <div class="content">
         <div class="author">Donald Trump</div>
-        <div class="text">I agree, enjoy it very much!</div>
-        <div class="time">10.10.2014</div>
+        <div class="text">I also enjoy it very much!</div>
+        <div class="time">12/12/2014</div>
     </div>
 </div>
 ```
@@ -99,7 +90,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ```html
 <div class="user">
     <div class="status -active"></div>
-    <div class="name">Donald Trump</div>
+    <div class="name">Barack Obama</div>
 </div>
 ```
 
@@ -110,7 +101,7 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ```html
 <div class="user">
     <div class="status -inactive"></div>
-    <div class="name">Donald Trump</div>
+    <div class="name">Barack Obama</div>
 </div>
 ```
 
@@ -121,6 +112,6 @@ Add this to your ```<head>``` tag to get styles for h1, h2, h3, and h4.
 ```html
 <div class="user -current">
     <div class="status -active"></div>
-    <div class="name">Barack Obama</div>
+    <div class="name">Donald Trump</div>
 </div>
 ```
