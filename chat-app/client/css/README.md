@@ -7,7 +7,7 @@ You can grab the CSS [here](chat-app.css).
 
 ## Base structure
 
-![Base structure](example-images/base-structure.png)
+![Base structure](example-images/base-html-structure.png)
 
 ```html
 <div class="app-container">
@@ -45,7 +45,7 @@ You can grab the CSS [here](chat-app.css).
 
 ## Post - Input
 
-![Post-Input](example-images/textbox.png)
+![Post-Input](example-images/textarea.png)
 
 ```html
 <textarea name="post" placeholder="What's up?"></textarea>
@@ -55,7 +55,7 @@ You can grab the CSS [here](chat-app.css).
 
 ### Message
 
-![Message](example-images/message.png)
+![Message](example-images/message-user.png)
 
 ```html
 <div class="message">
@@ -69,7 +69,7 @@ You can grab the CSS [here](chat-app.css).
 
 ### Message - Current user
 
-![Message](example-images/message-current-user.png)
+![Message](example-images/message-user-current.png)
 
 ```html
 <div class="message -current">
@@ -85,7 +85,7 @@ You can grab the CSS [here](chat-app.css).
 
 ### User - Active
 
-![User - Active](example-images/user-active.png)
+![User - Active](example-images/active-user.png)
 
 ```html
 <div class="user">
@@ -96,7 +96,7 @@ You can grab the CSS [here](chat-app.css).
 
 ### User - Inactive
 
-![User - Inactive](example-images/user-inactive.png)
+![User - Inactive](example-images/inactive-user.png)
 
 ```html
 <div class="user">
@@ -107,7 +107,7 @@ You can grab the CSS [here](chat-app.css).
 
 ### User - Current user
 
-![User - Offline](example-images/user-current.png)
+![User - Offline](example-images/current-user.png)
 
 ```html
 <div class="user -current">
