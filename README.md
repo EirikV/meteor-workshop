@@ -23,7 +23,7 @@ The application has the following structure (as per Meteor's own [recommendation
     * common (holds common code such as global helpers)
     * less
     * modules (each logical piece of the application is treated like a module)
-        * <module>
+        * \<module\>
             * \<root_level.html or .js\>
             * \<submodule folder\>
                 * \<submodule .html or .js\>
