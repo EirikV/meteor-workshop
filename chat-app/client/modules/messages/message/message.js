@@ -8,5 +8,9 @@ Template.Message.helpers({
             return '-current';
         }
         return '';
+    },
+    formattedText: function() {
+        text = this.text.replace(/(\r\n|\n|\r)/gm, '<br>');
+        return new Spacebars.SafeString(text);
     }
 });
