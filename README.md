@@ -24,15 +24,15 @@ The application has the following structure (as per Meteor's own [recommendation
     * less
     * modules (each logical piece of the application is treated like a module)
         * <module>
-            * <root_level.html or .js>
-            * <submodule folder>
-                * <submodule .html or .js>
+            * \<root_level.html or .js\>
+            * \<submodule folder\>
+                * \<submodule .html or .js\>
 * **lib** (main folder for code shared between client and server)
 * **public** (assets)
 * **server** (main folder for server side only code)
     * modules (client side modules can have server side counterparts)
-        * <submodule>
-            * <submodule.js>
+        * \<submodule\>
+            * \<submodule.js\>
 
 ### 2. Routing
 The most popular router for Meteor the `iron:router` ([iron router on atmospherejs](https://atmospherejs.com/iron/router)). Using a router is essential for a large application. With Meteor, using a router changes some of the basic mechanics of the framework. For example: In the chat application, you can simply publish a collection and then subscribe to it from the client. With a router, this needs to be handled for each route to make sure that a subscription is ready once a route function is executed. In the next series of subtasks, you will learn the parts of iron:router that are needed for Tweeteor.
