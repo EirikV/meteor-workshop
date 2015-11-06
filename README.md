@@ -15,9 +15,9 @@ If you need any help be sure to check out the links at the bottom of this page, 
 
 ### Part II - Tweeteor
 
-In this part you will continue building an existing application. [Tweeteor](https://github.com/EirikV/meteor-workshop/tree/tweeteor-base) is a micro-blog platform that
+In this part you will continue building an existing application. [Tweeteor](https://github.com/EirikV/meteor-workshop/tree/tweeteor-entry) is a micro-blog platform that
 matches your hashtags with images from [Instagram](https://instagr.am). In this part you will need to clone the repo and checkout the "tweeteor-base" branch.
-You will find the tasks for this part [here](https://github.com/EirikV/meteor-workshop/tree/tweeteor-base).
+You will find the tasks for this part [here](https://github.com/EirikV/meteor-workshop/tree/tweeteor-entry).
 
 If you need any help be sure to check out the links at the bottom of this page, or consult the code in the [solution branch](https://github.com/EirikV/meteor-workshop/tree/tweeteor-solution).
 
