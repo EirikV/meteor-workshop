@@ -14,7 +14,9 @@ Template.viewPost.helpers({
     },
     fetchText: function () {
         var activeTextValue = activeText.get();
-        return activeTextValue && post && this._id === post._id ? activeTextValue : this.text;
+        var text = activeTextValue && post && this._id === post._id ? activeTextValue : this.text;
+        text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+        return new Handlebars.SafeString(text);
     }
 
 });
